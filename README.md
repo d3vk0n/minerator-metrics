@@ -12,6 +12,14 @@ Overview Dashboard
 
 # Setup
 
+```
+sudo apt-get install git
+git clone https://github.com/pigfrown/minerator-metrics
+cd minerator-metrics
+sudo su
+./setup.sh
+```
+
 For Ubuntu 18.04 systems the setup.sh script can be used (run as root).
 For other systems, check the scripts to see what needs installing/configuring.
 
