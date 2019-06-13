@@ -2,6 +2,14 @@
 
 Visualisations for Minerator using Prometheus/Grafana.
 
+# Screenshots
+
+Device Dashboard
+![Screenshot](device.png)
+
+Overview Dashboard
+![Screenshot](overview.png)
+
 # Setup
 
 For Ubuntu 18.04 systems the setup.sh script can be used (run as root).
