@@ -1,0 +1,18 @@
+[Unit]
+Description=Minerator Metrics
+After=minerator.service
+
+[Service]
+WorkingDirectory=/var/local/minerator-metrics
+User=metrics
+ExecStart=/var/local/minerator-metrics/venv/bin/python /var/local/minerator-metrics/minerator_metrics.py
+Type=exec
+Restart=always
+RestartSec=10
+StartLimitIntervalSec=300
+StartLimitBurst=3
+
+[Install]
+WantedBy=multi-user.target
+
+

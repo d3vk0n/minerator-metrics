@@ -1,0 +1,2037 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": "-- Grafana --",
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "gnetId": null,
+  "graphTooltip": 0,
+  "id": 2,
+  "iteration": 1560440363840,
+  "links": [],
+  "panels": [
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 4,
+      "panels": [],
+      "title": "Device",
+      "type": "row"
+    },
+    {
+      "folderId": 4,
+      "gridPos": {
+        "h": 6,
+        "w": 3,
+        "x": 0,
+        "y": 1
+      },
+      "headings": false,
+      "id": 54,
+      "limit": 10,
+      "links": [],
+      "options": {},
+      "query": "",
+      "recent": false,
+      "search": false,
+      "starred": true,
+      "tags": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Quick Links",
+      "type": "dashlist"
+    },
+    {
+      "cacheTimeout": null,
+      "colorBackground": false,
+      "colorValue": false,
+      "colors": [
+        "#299c46",
+        "rgba(237, 129, 40, 0.89)",
+        "#d44a3a"
+      ],
+      "decimals": 2,
+      "format": "MHs",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 3,
+        "x": 3,
+        "y": 1
+      },
+      "id": 52,
+      "interval": null,
+      "links": [
+        {
+          "dashboard": "Core",
+          "params": "var-device=$device&var-core=0",
+          "title": "Hashrate Details",
+          "type": "dashboard",
+          "url": "/d/MXmmYHnZz/core"
+        }
+      ],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "options": {},
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "",
+      "prefixFontSize": "50%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": true
+      },
+      "tableColumn": "",
+      "targets": [
+        {
+          "expr": "minerator_core_hashrate_accepted{device=\"$device\"}",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "refId": "A"
+        }
+      ],
+      "thresholds": "",
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Total Accepted Hashrate",
+      "type": "singlestat",
+      "valueFontSize": "80%",
+      "valueMaps": [
+        {
+          "op": "=",
+          "text": "N/A",
+          "value": "null"
+        }
+      ],
+      "valueName": "current"
+    },
+    {
+      "cacheTimeout": null,
+      "colorBackground": false,
+      "colorValue": false,
+      "colors": [
+        "#299c46",
+        "rgba(237, 129, 40, 0.89)",
+        "#d44a3a"
+      ],
+      "decimals": 3,
+      "format": "none",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 3,
+        "x": 6,
+        "y": 1
+      },
+      "id": 17,
+      "interval": null,
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "options": {},
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "",
+      "prefixFontSize": "50%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": true
+      },
+      "tableColumn": "",
+      "targets": [
+        {
+          "expr": "minerator_core_clock_multiplier{device=\"$device\"}",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "refId": "A"
+        }
+      ],
+      "thresholds": "",
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Clock Multiplier",
+      "type": "singlestat",
+      "valueFontSize": "80%",
+      "valueMaps": [
+        {
+          "op": "=",
+          "text": "N/A",
+          "value": "null"
+        }
+      ],
+      "valueName": "current"
+    },
+    {
+      "cacheTimeout": null,
+      "colorBackground": false,
+      "colorValue": false,
+      "colors": [
+        "#299c46",
+        "rgba(237, 129, 40, 0.89)",
+        "#d44a3a"
+      ],
+      "decimals": 2,
+      "format": "celsius",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 3,
+        "x": 9,
+        "y": 1
+      },
+      "id": 51,
+      "interval": null,
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "options": {},
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "",
+      "prefixFontSize": "50%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": true
+      },
+      "tableColumn": "",
+      "targets": [
+        {
+          "expr": "minerator_vrctrl_temp{device=\"$device\"}",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "refId": "A"
+        }
+      ],
+      "thresholds": "",
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "VRCTRL Temp",
+      "type": "singlestat",
+      "valueFontSize": "80%",
+      "valueMaps": [
+        {
+          "op": "=",
+          "text": "N/A",
+          "value": "null"
+        }
+      ],
+      "valueName": "current"
+    },
+    {
+      "cacheTimeout": null,
+      "datasource": "Prometheus",
+      "gridPos": {
+        "h": 6,
+        "w": 3,
+        "x": 12,
+        "y": 1
+      },
+      "id": 12,
+      "links": [],
+      "options": {
+        "fieldOptions": {
+          "calcs": [
+            "last"
+          ],
+          "defaults": {
+            "max": 5,
+            "min": 0,
+            "unit": "percent"
+          },
+          "mappings": [],
+          "override": {},
+          "thresholds": [
+            {
+              "color": "green",
+              "index": 0,
+              "value": null
+            },
+            {
+              "color": "#EAB839",
+              "index": 1,
+              "value": 1
+            },
+            {
+              "color": "red",
+              "index": 2,
+              "value": 2
+            }
+          ],
+          "values": false
+        },
+        "orientation": "auto",
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true
+      },
+      "pluginVersion": "6.2.2",
+      "targets": [
+        {
+          "expr": "((minerator_core_hashrate_found{device=\"$device\"}-minerator_core_hashrate_valid{device=\"$device\"})/minerator_core_hashrate_found{device=\"$device\"})*100",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "refId": "A"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Hardware Errors",
+      "type": "gauge"
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "fill": 1,
+      "gridPos": {
+        "h": 12,
+        "w": 9,
+        "x": 15,
+        "y": 1
+      },
+      "id": 59,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [
+        {
+          "dashboard": "Core",
+          "params": "var-device=$device&var-core=0",
+          "title": "Hashrate Details",
+          "type": "dashboard",
+          "url": "/d/MXmmYHnZz/core"
+        }
+      ],
+      "nullPointMode": "null",
+      "options": {},
+      "percentage": false,
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "avg_over_time(minerator_core_hashrate_accepted_per_min{device=\"$device\"}[15m])",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "Core {{ core }}",
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Accepted Hashrate 15 Minute Average",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "MHs",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "gridPos": {
+        "h": 6,
+        "w": 9,
+        "x": 0,
+        "y": 7
+      },
+      "id": 42,
+      "links": [
+        {
+          "dashboard": "Core",
+          "params": "var-device=$device&var-core=0",
+          "title": "Core",
+          "type": "dashboard",
+          "url": "/d/MXmmYHnZz/core"
+        }
+      ],
+      "options": {
+        "displayMode": "gradient",
+        "fieldOptions": {
+          "calcs": [
+            "last"
+          ],
+          "defaults": {
+            "max": 300,
+            "min": 0,
+            "unit": "MHs"
+          },
+          "mappings": [],
+          "override": {},
+          "thresholds": [
+            {
+              "color": "red",
+              "index": 0,
+              "value": null
+            },
+            {
+              "color": "#EAB839",
+              "index": 1,
+              "value": 100
+            },
+            {
+              "color": "green",
+              "index": 2,
+              "value": 240
+            }
+          ],
+          "values": false
+        },
+        "orientation": "horizontal"
+      },
+      "targets": [
+        {
+          "expr": "minerator_core_hashrate_accepted_per_min{device=\"$device\"}",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "Accepted",
+          "refId": "A"
+        },
+        {
+          "expr": "minerator_core_hashrate_submitted_per_min{device=\"$device\"}",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "Submitted",
+          "refId": "B"
+        },
+        {
+          "expr": "minerator_core_hashrate_valid_per_min{device=\"$device\"}",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "Valid",
+          "refId": "C"
+        },
+        {
+          "expr": "minerator_core_hashrate_found_per_min{device=\"$device\"}",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "Found",
+          "refId": "D"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Hashrates Last Minute",
+      "type": "bargauge"
+    },
+    {
+      "cacheTimeout": null,
+      "colorBackground": false,
+      "colorValue": false,
+      "colors": [
+        "#299c46",
+        "rgba(237, 129, 40, 0.89)",
+        "#d44a3a"
+      ],
+      "decimals": 2,
+      "format": "watt",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 3,
+        "x": 9,
+        "y": 7
+      },
+      "id": 50,
+      "interval": null,
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "options": {},
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "",
+      "prefixFontSize": "50%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": true
+      },
+      "tableColumn": "",
+      "targets": [
+        {
+          "expr": "minerator_input_power{device=\"$device\"}",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "refId": "A"
+        }
+      ],
+      "thresholds": "",
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Input Power",
+      "type": "singlestat",
+      "valueFontSize": "80%",
+      "valueMaps": [
+        {
+          "op": "=",
+          "text": "N/A",
+          "value": "null"
+        }
+      ],
+      "valueName": "current"
+    },
+    {
+      "cacheTimeout": null,
+      "datasource": "Prometheus",
+      "gridPos": {
+        "h": 6,
+        "w": 3,
+        "x": 12,
+        "y": 7
+      },
+      "id": 13,
+      "links": [],
+      "options": {
+        "fieldOptions": {
+          "calcs": [
+            "last"
+          ],
+          "defaults": {
+            "max": 5,
+            "min": 0,
+            "unit": "percent"
+          },
+          "mappings": [],
+          "override": {},
+          "thresholds": [
+            {
+              "color": "green",
+              "index": 0,
+              "value": null
+            },
+            {
+              "color": "#EAB839",
+              "index": 1,
+              "value": 1
+            },
+            {
+              "color": "red",
+              "index": 2,
+              "value": 2
+            }
+          ],
+          "values": false
+        },
+        "orientation": "auto",
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true
+      },
+      "pluginVersion": "6.2.2",
+      "targets": [
+        {
+          "expr": "((minerator_core_hashrate_submitted{device=\"$device\"}-minerator_core_hashrate_accepted{device=\"$device\"})/minerator_core_hashrate_submitted{device=\"$device\"})*100",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "refId": "A"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Rejected Shares",
+      "type": "gauge"
+    },
+    {
+      "backgroundColor": "rgba(128,128,128,0.1)",
+      "colorMaps": [
+        {
+          "color": "#73BF69",
+          "text": "Ramp Up"
+        },
+        {
+          "color": "#CEC",
+          "text": "Slow Increase"
+        },
+        {
+          "color": "#FADE2A",
+          "text": "Hold"
+        },
+        {
+          "color": "#FF9830",
+          "text": "Slow Decrease"
+        },
+        {
+          "color": "red",
+          "text": "Critical"
+        },
+        {
+          "color": "rgb(0, 0, 0)",
+          "text": "null"
+        }
+      ],
+      "crosshairColor": "#8F070C",
+      "display": "timeline",
+      "expandFromQueryS": 0,
+      "extendLastValue": true,
+      "gridPos": {
+        "h": 11,
+        "w": 24,
+        "x": 0,
+        "y": 13
+      },
+      "highlightOnMouseover": true,
+      "id": 40,
+      "legendSortBy": "-ms",
+      "lineColor": "rgba(0,0,0,0.1)",
+      "links": [],
+      "metricNameColor": "#000000",
+      "options": {},
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "rowHeight": 24,
+      "showDistinctCount": false,
+      "showLegend": true,
+      "showLegendCounts": false,
+      "showLegendNames": false,
+      "showLegendPercent": false,
+      "showLegendValues": true,
+      "showTimeAxis": true,
+      "showTransitionCount": false,
+      "targets": [
+        {
+          "expr": "minerator_aux12_current_health{device=\"$device\"}",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "AUX12V Current",
+          "refId": "A"
+        },
+        {
+          "expr": "minerator_aux12v_health{device=\"$device\"}",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "AUX12V",
+          "refId": "B"
+        },
+        {
+          "expr": "minerator_pex12v_current_health{device=\"$device\"}",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "PEX12V  Current",
+          "refId": "C"
+        },
+        {
+          "expr": "minerator_pex12v_health{device=\"$device\"}",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "PEX12V",
+          "refId": "D"
+        },
+        {
+          "expr": "minerator_vrctrl_temp_health{device=\"$device\"}",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "VRCTRL Temp",
+          "refId": "E"
+        },
+        {
+          "expr": "minerator_core_clock_multiplier_health{device=\"$device\"}",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "Clock Multi",
+          "refId": "F"
+        },
+        {
+          "expr": "minerator_input_power_health{device=\"$device\"}",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "Input Power",
+          "refId": "G"
+        },
+        {
+          "expr": "minerator_vccint_current_health{device=\"$device\"}",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "VCCINT Current",
+          "refId": "H"
+        },
+        {
+          "expr": "minerator_phase_temp_health{device=\"$device\", phase=\"0\"}",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "Phase 0 Temp",
+          "refId": "I"
+        },
+        {
+          "expr": "minerator_phase_temp_health{device=\"$device\", phase=\"1\"}",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "Phase 1 Temp",
+          "refId": "J"
+        },
+        {
+          "expr": "minerator_sysmon_health{device=\"$device\", sysmon=\"0\"}",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "Sysmon 0 Temp",
+          "refId": "K"
+        },
+        {
+          "expr": "minerator_sysmon_health{device=\"$device\", sysmon=\"1\"}",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "Sysmon 1 Temp",
+          "refId": "L"
+        },
+        {
+          "expr": "minerator_sysmon_health{device=\"$device\", sysmon=\"2\"}",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "Sysmon 2 Temp",
+          "refId": "M"
+        }
+      ],
+      "textSize": 16,
+      "textSizeTime": 12,
+      "timeFrom": null,
+      "timeOptions": [
+        {
+          "name": "Years",
+          "value": "years"
+        },
+        {
+          "name": "Months",
+          "value": "months"
+        },
+        {
+          "name": "Weeks",
+          "value": "weeks"
+        },
+        {
+          "name": "Days",
+          "value": "days"
+        },
+        {
+          "name": "Hours",
+          "value": "hours"
+        },
+        {
+          "name": "Minutes",
+          "value": "minutes"
+        },
+        {
+          "name": "Seconds",
+          "value": "seconds"
+        },
+        {
+          "name": "Milliseconds",
+          "value": "milliseconds"
+        }
+      ],
+      "timePrecision": {
+        "name": "Minutes",
+        "value": "minutes"
+      },
+      "timeShift": null,
+      "timeTextColor": "#d8d9da",
+      "title": "Health over time",
+      "type": "natel-discrete-panel",
+      "units": "short",
+      "useTimePrecision": false,
+      "valueMaps": [
+        {
+          "op": "=",
+          "text": "Ramp Up",
+          "value": "0"
+        },
+        {
+          "op": "=",
+          "text": "Slow Increase",
+          "value": "1"
+        },
+        {
+          "op": "=",
+          "text": "Hold",
+          "value": "2"
+        },
+        {
+          "op": "=",
+          "text": "Slow Decrease",
+          "value": "3"
+        },
+        {
+          "op": "=",
+          "text": "Critical",
+          "value": "4"
+        }
+      ],
+      "valueTextColor": "#000000",
+      "writeAllValues": false,
+      "writeLastValue": true,
+      "writeMetricNames": true
+    },
+    {
+      "columns": [
+        {
+          "text": "Current",
+          "value": "current"
+        }
+      ],
+      "fontSize": "100%",
+      "gridPos": {
+        "h": 6,
+        "w": 5,
+        "x": 0,
+        "y": 24
+      },
+      "id": 24,
+      "links": [
+        {
+          "dashboard": "sysmon",
+          "params": "var-device=$device&var-sysmon=$sysmon",
+          "title": "Sysmon",
+          "type": "dashboard"
+        }
+      ],
+      "maxPerRow": null,
+      "options": {},
+      "pageSize": null,
+      "repeat": "sysmon",
+      "repeatDirection": "v",
+      "scopedVars": {
+        "sysmon": {
+          "selected": false,
+          "text": "0",
+          "value": "0"
+        }
+      },
+      "scroll": true,
+      "showHeader": true,
+      "sort": {
+        "col": 0,
+        "desc": true
+      },
+      "styles": [
+        {
+          "alias": "Value",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "decimals": 2,
+          "pattern": "Current",
+          "thresholds": [],
+          "type": "number",
+          "unit": "short"
+        }
+      ],
+      "targets": [
+        {
+          "expr": "minerator_sysmon_temperature{device=\"$device\", sysmon=\"$sysmon\"}",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "Temp (C)",
+          "refId": "A"
+        },
+        {
+          "expr": "minerator_sysmon_vccbram{device=\"$device\", sysmon=\"$sysmon\"}",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "VCCBRAM (V)",
+          "refId": "B"
+        },
+        {
+          "expr": "minerator_sysmon_vccint{device=\"$device\", sysmon=\"$sysmon\"}",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "VCCINT (V)",
+          "refId": "C"
+        },
+        {
+          "expr": "minerator_sysmon_vccaux{device=\"$device\", sysmon=\"$sysmon\"}",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "VCCAUX (V)",
+          "refId": "D"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Sysmon $sysmon",
+      "transform": "timeseries_aggregations",
+      "type": "table"
+    },
+    {
+      "columns": [
+        {
+          "text": "Current",
+          "value": "current"
+        }
+      ],
+      "fontSize": "100%",
+      "gridPos": {
+        "h": 6,
+        "w": 5,
+        "x": 5,
+        "y": 24
+      },
+      "id": 28,
+      "links": [
+        {
+          "dashboard": "Phase",
+          "params": "var-device=$device&var-phase=$phase",
+          "title": "Phase",
+          "type": "dashboard",
+          "url": "/d/QES0-N7Zz/phase"
+        }
+      ],
+      "options": {},
+      "pageSize": null,
+      "repeat": "phase",
+      "repeatDirection": "v",
+      "scopedVars": {
+        "phase": {
+          "selected": true,
+          "text": "0",
+          "value": "0"
+        }
+      },
+      "scroll": true,
+      "showHeader": true,
+      "sort": {
+        "col": 0,
+        "desc": true
+      },
+      "styles": [
+        {
+          "alias": "Time",
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "pattern": "Time",
+          "type": "date"
+        },
+        {
+          "alias": "",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "decimals": 2,
+          "pattern": "/.*/",
+          "thresholds": [],
+          "type": "number",
+          "unit": "short"
+        }
+      ],
+      "targets": [
+        {
+          "expr": "minerator_phase_temp{device=\"$device\", phase=\"$phase\"}",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "Temperature",
+          "refId": "A"
+        },
+        {
+          "expr": "minerator_phase_vout{device=\"$device\", phase=\"$phase\"}",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "VOUT ",
+          "refId": "B"
+        },
+        {
+          "expr": "minerator_phase_iout{device=\"$device\", phase=\"$phase\"}",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "IOUT ",
+          "refId": "C"
+        },
+        {
+          "expr": "",
+          "format": "table",
+          "intervalFactor": 1,
+          "legendFormat": "{{ phase }} | phase",
+          "refId": "D"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Phase $phase",
+      "transform": "timeseries_aggregations",
+      "type": "table"
+    },
+    {
+      "activePatternIndex": 1,
+      "debug_mode": false,
+      "defaultPattern": {
+        "bgColors": "green|orange|red",
+        "bgColors_overrides": "3->orange|0->green|2->yellow|4->red|1->lightgreen",
+        "clickable_cells_link": "http://localhost:3000/d/usxDW47Zk/minerator?orgId=1&fullscreen&panelId=15",
+        "col_name": "_1_",
+        "decimals": 2,
+        "delimiter": "|",
+        "enable_bgColor": false,
+        "enable_bgColor_overrides": true,
+        "enable_clickable_cells": false,
+        "enable_textColor": false,
+        "enable_textColor_overrides": false,
+        "enable_time_based_thresholds": false,
+        "enable_transform": false,
+        "enable_transform_overrides": true,
+        "filter": {
+          "value_above": "",
+          "value_below": ""
+        },
+        "format": "none",
+        "name": "Default Pattern",
+        "null_color": "darkred",
+        "null_textcolor": "black",
+        "null_value": "No data",
+        "pattern": "*",
+        "row_col_wrapper": "_",
+        "row_name": "_2_",
+        "textColors": "red|orange|green",
+        "textColors_overrides": "0->red|2->green|1->yellow",
+        "thresholds": "70,90",
+        "time_based_thresholds": [],
+        "tooltipTemplate": "Series : _series_ <br/>Row Name : _row_name_ <br/>Col Name : _col_name_ <br/>Value : _value_",
+        "transform_values": "_value_|_value_|_value_",
+        "transform_values_overrides": "0->Ramp Up|1->Slow Increase|2->Hold|3->Slow Decrease|4->Critical",
+        "valueName": "current"
+      },
+      "default_title_for_rows": "Metric",
+      "gridPos": {
+        "h": 9,
+        "w": 7,
+        "x": 10,
+        "y": 24
+      },
+      "hide_first_column": false,
+      "id": 34,
+      "links": [],
+      "options": {},
+      "patterns": [
+        {
+          "bgColors": "green|orange|red",
+          "bgColors_overrides": "0->green|2->red|1->yellow",
+          "clickable_cells_link": "",
+          "col_name": "_1_",
+          "decimals": 2,
+          "delimiter": "|",
+          "enable_bgColor": false,
+          "enable_bgColor_overrides": false,
+          "enable_clickable_cells": false,
+          "enable_textColor": false,
+          "enable_textColor_overrides": false,
+          "enable_time_based_thresholds": false,
+          "enable_transform": false,
+          "enable_transform_overrides": false,
+          "filter": {
+            "value_above": "",
+            "value_below": ""
+          },
+          "format": "none",
+          "name": "aux12v",
+          "null_color": "darkred",
+          "null_textcolor": "black",
+          "null_value": "No data",
+          "pattern": "/^minerator_aux12_current.*$/",
+          "row_col_wrapper": "_",
+          "row_name": "AUX12V",
+          "textColors": "red|orange|green",
+          "textColors_overrides": "0->red|2->green|1->yellow",
+          "thresholds": "70,90",
+          "time_based_thresholds": [],
+          "tooltipTemplate": "Series : _series_ <br/>Row Name : _row_name_ <br/>Col Name : _col_name_ <br/>Value : _value_",
+          "transform_values": "_value_|_value_|_value_",
+          "transform_values_overrides": "0->down|1->up",
+          "valueName": "current"
+        }
+      ],
+      "row_col_wrapper": "_",
+      "targets": [
+        {
+          "expr": "minerator_input_power_health{device=\"$device\"}",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{ device }} | Health | Input Power",
+          "refId": "I"
+        },
+        {
+          "expr": "minerator_input_power{device=\"$device\"}",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{ device }} | Value | Input Power",
+          "refId": "J"
+        },
+        {
+          "expr": "minerator_aux12v_health{device=\"$device\"}",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{ device }} | Health | AUX12V",
+          "refId": "A"
+        },
+        {
+          "expr": "minerator_aux12v{device=\"$device\"}",
+          "format": "time_series",
+          "hide": false,
+          "intervalFactor": 1,
+          "legendFormat": "{{ device }} | Value | AUX12V",
+          "refId": "B"
+        },
+        {
+          "expr": "minerator_aux12_current_health{device=\"$device\"}",
+          "format": "time_series",
+          "hide": false,
+          "intervalFactor": 1,
+          "legendFormat": "{{ device }} | Health | AUX12V Current",
+          "refId": "C"
+        },
+        {
+          "expr": "minerator_aux12_current{device=\"$device\"}",
+          "format": "time_series",
+          "hide": false,
+          "intervalFactor": 1,
+          "legendFormat": "{{ device }} | Value | AUX12V Current",
+          "refId": "D"
+        },
+        {
+          "expr": "minerator_pex12v_health{device=\"$device\"}",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{ device }} | Health | PEX12V",
+          "refId": "E"
+        },
+        {
+          "expr": "minerator_pex12v{device=\"$device\"}",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{ device }} | Value | PEX12V",
+          "refId": "F"
+        },
+        {
+          "expr": "minerator_pex12v_current_health{device=\"$device\"}",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{ device }} | Health | PEX12V Current",
+          "refId": "G"
+        },
+        {
+          "expr": "minerator_pex12v_current{device=\"$device\"}",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{ device }} | Value | PEX12V Current",
+          "refId": "H"
+        },
+        {
+          "expr": "minerator_vccint_current_health{device=\"$device\"}",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{ device }} | Health | VCCINT Current",
+          "refId": "K"
+        },
+        {
+          "expr": "minerator_vccint_current{device=\"$device\"}",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{ device }} | Value | VCCINT Current",
+          "refId": "L"
+        },
+        {
+          "expr": "minerator_vrctrl_temp_health{device=\"$device\"}",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{ device }} | Health | VRCTRL Temp",
+          "refId": "M"
+        },
+        {
+          "expr": "minerator_vrctrl_temp{device=\"$device\"}",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{ device }} | Value | VRCTRL Temp",
+          "refId": "N"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Health Overview",
+      "type": "yesoreyeram-boomtable-panel"
+    },
+    {
+      "columns": [
+        {
+          "text": "Current",
+          "value": "current"
+        },
+        {
+          "text": "Max",
+          "value": "max"
+        }
+      ],
+      "fontSize": "100%",
+      "gridPos": {
+        "h": 9,
+        "w": 7,
+        "x": 17,
+        "y": 24
+      },
+      "id": 15,
+      "links": [],
+      "options": {},
+      "pageSize": null,
+      "scroll": true,
+      "showHeader": true,
+      "sort": {
+        "col": null,
+        "desc": false
+      },
+      "styles": [
+        {
+          "alias": "Temperature",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "decimals": 2,
+          "pattern": "Current",
+          "thresholds": [],
+          "type": "number",
+          "unit": "celsius"
+        },
+        {
+          "alias": "Peak",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "Max",
+          "thresholds": [],
+          "type": "number",
+          "unit": "celsius"
+        }
+      ],
+      "targets": [
+        {
+          "expr": "minerator_fpga_temp{device=\"$device\"}",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "FPGA",
+          "refId": "A"
+        },
+        {
+          "expr": "minerator_vrctrl_temp{device=\"$device\"}",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "VRCTRL",
+          "refId": "B"
+        },
+        {
+          "expr": "minerator_phase_temp{device=\"$device\"}",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "Phase {{ phase }}",
+          "refId": "C"
+        },
+        {
+          "expr": "minerator_sysmon_temperature{device=\"$device\"}",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "Sysmon {{ sysmon }}",
+          "refId": "D"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Temperature Overview",
+      "transform": "timeseries_aggregations",
+      "type": "table"
+    },
+    {
+      "columns": [
+        {
+          "text": "Current",
+          "value": "current"
+        }
+      ],
+      "fontSize": "100%",
+      "gridPos": {
+        "h": 6,
+        "w": 5,
+        "x": 0,
+        "y": 30
+      },
+      "id": 60,
+      "links": [
+        {
+          "dashboard": "sysmon",
+          "params": "var-device=$device&var-sysmon=$sysmon",
+          "title": "Sysmon",
+          "type": "dashboard"
+        }
+      ],
+      "maxPerRow": null,
+      "options": {},
+      "pageSize": null,
+      "repeat": null,
+      "repeatDirection": "v",
+      "repeatIteration": 1560440363840,
+      "repeatPanelId": 24,
+      "scopedVars": {
+        "sysmon": {
+          "selected": false,
+          "text": "1",
+          "value": "1"
+        }
+      },
+      "scroll": true,
+      "showHeader": true,
+      "sort": {
+        "col": 0,
+        "desc": true
+      },
+      "styles": [
+        {
+          "alias": "Value",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "decimals": 2,
+          "pattern": "Current",
+          "thresholds": [],
+          "type": "number",
+          "unit": "short"
+        }
+      ],
+      "targets": [
+        {
+          "expr": "minerator_sysmon_temperature{device=\"$device\", sysmon=\"$sysmon\"}",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "Temp (C)",
+          "refId": "A"
+        },
+        {
+          "expr": "minerator_sysmon_vccbram{device=\"$device\", sysmon=\"$sysmon\"}",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "VCCBRAM (V)",
+          "refId": "B"
+        },
+        {
+          "expr": "minerator_sysmon_vccint{device=\"$device\", sysmon=\"$sysmon\"}",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "VCCINT (V)",
+          "refId": "C"
+        },
+        {
+          "expr": "minerator_sysmon_vccaux{device=\"$device\", sysmon=\"$sysmon\"}",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "VCCAUX (V)",
+          "refId": "D"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Sysmon $sysmon",
+      "transform": "timeseries_aggregations",
+      "type": "table"
+    },
+    {
+      "columns": [
+        {
+          "text": "Current",
+          "value": "current"
+        }
+      ],
+      "fontSize": "100%",
+      "gridPos": {
+        "h": 6,
+        "w": 5,
+        "x": 5,
+        "y": 30
+      },
+      "id": 62,
+      "links": [
+        {
+          "dashboard": "Phase",
+          "params": "var-device=$device&var-phase=$phase",
+          "title": "Phase",
+          "type": "dashboard",
+          "url": "/d/QES0-N7Zz/phase"
+        }
+      ],
+      "options": {},
+      "pageSize": null,
+      "repeat": null,
+      "repeatDirection": "v",
+      "repeatIteration": 1560440363840,
+      "repeatPanelId": 28,
+      "scopedVars": {
+        "phase": {
+          "selected": true,
+          "text": "1",
+          "value": "1"
+        }
+      },
+      "scroll": true,
+      "showHeader": true,
+      "sort": {
+        "col": 0,
+        "desc": true
+      },
+      "styles": [
+        {
+          "alias": "Time",
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "pattern": "Time",
+          "type": "date"
+        },
+        {
+          "alias": "",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "decimals": 2,
+          "pattern": "/.*/",
+          "thresholds": [],
+          "type": "number",
+          "unit": "short"
+        }
+      ],
+      "targets": [
+        {
+          "expr": "minerator_phase_temp{device=\"$device\", phase=\"$phase\"}",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "Temperature",
+          "refId": "A"
+        },
+        {
+          "expr": "minerator_phase_vout{device=\"$device\", phase=\"$phase\"}",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "VOUT ",
+          "refId": "B"
+        },
+        {
+          "expr": "minerator_phase_iout{device=\"$device\", phase=\"$phase\"}",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "IOUT ",
+          "refId": "C"
+        },
+        {
+          "expr": "",
+          "format": "table",
+          "intervalFactor": 1,
+          "legendFormat": "{{ phase }} | phase",
+          "refId": "D"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Phase $phase",
+      "transform": "timeseries_aggregations",
+      "type": "table"
+    },
+    {
+      "columns": [
+        {
+          "text": "Current",
+          "value": "current"
+        }
+      ],
+      "fontSize": "100%",
+      "gridPos": {
+        "h": 9,
+        "w": 3,
+        "x": 10,
+        "y": 33
+      },
+      "id": 21,
+      "links": [],
+      "options": {},
+      "pageSize": null,
+      "scroll": true,
+      "showHeader": true,
+      "sort": {
+        "col": 0,
+        "desc": false
+      },
+      "styles": [
+        {
+          "alias": "Voltage",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "decimals": 3,
+          "pattern": "Current",
+          "thresholds": [],
+          "type": "number",
+          "unit": "volt"
+        }
+      ],
+      "targets": [
+        {
+          "expr": "minerator_vccint{device=\"$device\"}",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "VCCINT",
+          "refId": "A"
+        },
+        {
+          "expr": "minerator_aux12v{device=\"$device\"}",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "AUX12V",
+          "refId": "B"
+        },
+        {
+          "expr": "minerator_aux3v3{device=\"$device\"}",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "AUX3V3",
+          "refId": "C"
+        },
+        {
+          "expr": "minerator_pex12v{device=\"$device\"}",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "PEX12V",
+          "refId": "D"
+        },
+        {
+          "expr": "minerator_pex3v3{device=\"$device\"}",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "PEX3V3",
+          "refId": "E"
+        },
+        {
+          "expr": "",
+          "format": "time_series",
+          "instant": false,
+          "intervalFactor": 1,
+          "legendFormat": "",
+          "refId": "F"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Voltages",
+      "transform": "timeseries_aggregations",
+      "type": "table"
+    },
+    {
+      "columns": [
+        {
+          "text": "Current",
+          "value": "current"
+        }
+      ],
+      "fontSize": "100%",
+      "gridPos": {
+        "h": 9,
+        "w": 3,
+        "x": 13,
+        "y": 33
+      },
+      "id": 22,
+      "links": [],
+      "options": {},
+      "pageSize": null,
+      "scroll": true,
+      "showHeader": true,
+      "sort": {
+        "col": 0,
+        "desc": false
+      },
+      "styles": [
+        {
+          "alias": "",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "decimals": 3,
+          "pattern": "Current",
+          "thresholds": [],
+          "type": "number",
+          "unit": "amp"
+        }
+      ],
+      "targets": [
+        {
+          "expr": "minerator_vccint_current{device=\"$device\"}",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "VCCINT",
+          "refId": "A"
+        },
+        {
+          "expr": "minerator_aux12_current{device=\"$device\"}",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "AUX12V",
+          "refId": "B"
+        },
+        {
+          "expr": "minerator_pex12v_current{device=\"$device\"}",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "PEX12V",
+          "refId": "D"
+        },
+        {
+          "expr": "minerator_pex3v3_current{device=\"$device\"}",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "PEX3V3",
+          "refId": "E"
+        },
+        {
+          "expr": "",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "",
+          "refId": "F"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Amps",
+      "transform": "timeseries_aggregations",
+      "type": "table"
+    },
+    {
+      "columns": [
+        {
+          "text": "Current",
+          "value": "current"
+        }
+      ],
+      "fontSize": "100%",
+      "gridPos": {
+        "h": 6,
+        "w": 5,
+        "x": 0,
+        "y": 36
+      },
+      "id": 61,
+      "links": [
+        {
+          "dashboard": "sysmon",
+          "params": "var-device=$device&var-sysmon=$sysmon",
+          "title": "Sysmon",
+          "type": "dashboard"
+        }
+      ],
+      "maxPerRow": null,
+      "options": {},
+      "pageSize": null,
+      "repeat": null,
+      "repeatDirection": "v",
+      "repeatIteration": 1560440363840,
+      "repeatPanelId": 24,
+      "scopedVars": {
+        "sysmon": {
+          "selected": false,
+          "text": "2",
+          "value": "2"
+        }
+      },
+      "scroll": true,
+      "showHeader": true,
+      "sort": {
+        "col": 0,
+        "desc": true
+      },
+      "styles": [
+        {
+          "alias": "Value",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "decimals": 2,
+          "pattern": "Current",
+          "thresholds": [],
+          "type": "number",
+          "unit": "short"
+        }
+      ],
+      "targets": [
+        {
+          "expr": "minerator_sysmon_temperature{device=\"$device\", sysmon=\"$sysmon\"}",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "Temp (C)",
+          "refId": "A"
+        },
+        {
+          "expr": "minerator_sysmon_vccbram{device=\"$device\", sysmon=\"$sysmon\"}",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "VCCBRAM (V)",
+          "refId": "B"
+        },
+        {
+          "expr": "minerator_sysmon_vccint{device=\"$device\", sysmon=\"$sysmon\"}",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "VCCINT (V)",
+          "refId": "C"
+        },
+        {
+          "expr": "minerator_sysmon_vccaux{device=\"$device\", sysmon=\"$sysmon\"}",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "VCCAUX (V)",
+          "refId": "D"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Sysmon $sysmon",
+      "transform": "timeseries_aggregations",
+      "type": "table"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 42
+      },
+      "id": 6,
+      "panels": [],
+      "title": "Row title",
+      "type": "row"
+    }
+  ],
+  "schemaVersion": 18,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "allValue": null,
+        "current": {
+          "isNone": true,
+          "text": "None",
+          "value": ""
+        },
+        "datasource": "Prometheus",
+        "definition": "label_values(minerator_core_clock_multiplier, device)",
+        "hide": 0,
+        "includeAll": false,
+        "label": "Device",
+        "multi": false,
+        "name": "device",
+        "options": [],
+        "query": "label_values(minerator_core_clock_multiplier, device)",
+        "refresh": 2,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {
+          "tags": [],
+          "text": "All",
+          "value": [
+            "$__all"
+          ]
+        },
+        "datasource": "Prometheus",
+        "definition": "label_values(minerator_sysmon_health, sysmon)",
+        "hide": 2,
+        "includeAll": true,
+        "label": null,
+        "multi": true,
+        "name": "sysmon",
+        "options": [
+          {
+            "selected": true,
+            "text": "All",
+            "value": "$__all"
+          },
+          {
+            "selected": false,
+            "text": "0",
+            "value": "0"
+          },
+          {
+            "selected": false,
+            "text": "1",
+            "value": "1"
+          },
+          {
+            "selected": false,
+            "text": "2",
+            "value": "2"
+          }
+        ],
+        "query": "label_values(minerator_sysmon_health, sysmon)",
+        "refresh": 0,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {
+          "tags": [],
+          "text": "0",
+          "value": [
+            "0"
+          ]
+        },
+        "datasource": "Prometheus",
+        "definition": "label_values(minerator_phase_temp, phase)",
+        "hide": 2,
+        "includeAll": true,
+        "label": null,
+        "multi": true,
+        "name": "phase",
+        "options": [],
+        "query": "label_values(minerator_phase_temp, phase)",
+        "refresh": "1m",
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      }
+    ]
+  },
+  "time": {
+    "from": "now-1h",
+    "to": "now"
+  },
+  "timepicker": {
+    "refresh_intervals": [
+      "5s",
+      "10s",
+      "30s",
+      "1m",
+      "5m",
+      "15m",
+      "30m",
+      "1h",
+      "2h",
+      "1d"
+    ],
+    "time_options": [
+      "5m",
+      "15m",
+      "1h",
+      "6h",
+      "12h",
+      "24h",
+      "2d",
+      "7d",
+      "30d"
+    ]
+  },
+  "timezone": "",
+  "title": "Device",
+  "uid": "usxDW47Zk",
+  "version": 4
+}

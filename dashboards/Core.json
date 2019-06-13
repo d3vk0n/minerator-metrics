@@ -1,0 +1,1146 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": "-- Grafana --",
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "gnetId": null,
+  "graphTooltip": 0,
+  "id": 5,
+  "iteration": 1560433053693,
+  "links": [],
+  "panels": [
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 15,
+      "panels": [],
+      "title": "Core Overview",
+      "type": "row"
+    },
+    {
+      "cacheTimeout": null,
+      "colorBackground": false,
+      "colorValue": false,
+      "colors": [
+        "#299c46",
+        "rgba(237, 129, 40, 0.89)",
+        "#d44a3a"
+      ],
+      "decimals": 3,
+      "format": "none",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 0,
+        "y": 1
+      },
+      "id": 2,
+      "interval": null,
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "options": {},
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "",
+      "prefixFontSize": "50%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": true
+      },
+      "tableColumn": "",
+      "targets": [
+        {
+          "expr": "minerator_core_clock_multiplier{device=\"$device\", core=\"$core\"}",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "refId": "A"
+        }
+      ],
+      "thresholds": "",
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Clock Multiplier",
+      "type": "singlestat",
+      "valueFontSize": "80%",
+      "valueMaps": [
+        {
+          "op": "=",
+          "text": "N/A",
+          "value": "null"
+        }
+      ],
+      "valueName": "current"
+    },
+    {
+      "backgroundColor": "rgba(128,128,128,0.1)",
+      "colorMaps": [
+        {
+          "color": "#37872D",
+          "text": "Ramp Up"
+        },
+        {
+          "color": "#C8F2C2",
+          "text": "Slow Increase"
+        },
+        {
+          "color": "#FADE2A",
+          "text": "Hold"
+        },
+        {
+          "color": "#FF9830",
+          "text": "Slow Decrease"
+        },
+        {
+          "color": "#C4162A",
+          "text": "Critical"
+        }
+      ],
+      "crosshairColor": "#8F070C",
+      "display": "timeline",
+      "expandFromQueryS": 0,
+      "extendLastValue": true,
+      "gridPos": {
+        "h": 4,
+        "w": 20,
+        "x": 4,
+        "y": 1
+      },
+      "highlightOnMouseover": true,
+      "id": 4,
+      "legendSortBy": "-ms",
+      "lineColor": "rgba(0,0,0,0.1)",
+      "links": [],
+      "metricNameColor": "#000000",
+      "options": {},
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "rowHeight": 50,
+      "showLegend": true,
+      "showLegendNames": false,
+      "showLegendPercent": false,
+      "showLegendValues": true,
+      "showTimeAxis": true,
+      "targets": [
+        {
+          "expr": "minerator_core_clock_multiplier_health{device=\"$device\", core=\"$core\"}",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "Health",
+          "refId": "A"
+        }
+      ],
+      "textSize": 24,
+      "textSizeTime": 12,
+      "timeFrom": null,
+      "timeOptions": [
+        {
+          "name": "Years",
+          "value": "years"
+        },
+        {
+          "name": "Months",
+          "value": "months"
+        },
+        {
+          "name": "Weeks",
+          "value": "weeks"
+        },
+        {
+          "name": "Days",
+          "value": "days"
+        },
+        {
+          "name": "Hours",
+          "value": "hours"
+        },
+        {
+          "name": "Minutes",
+          "value": "minutes"
+        },
+        {
+          "name": "Seconds",
+          "value": "seconds"
+        },
+        {
+          "name": "Milliseconds",
+          "value": "milliseconds"
+        }
+      ],
+      "timePrecision": {
+        "name": "Minutes",
+        "value": "minutes"
+      },
+      "timeShift": null,
+      "timeTextColor": "#d8d9da",
+      "title": "Clock Multiplier Health Overtime",
+      "type": "natel-discrete-panel",
+      "units": "short",
+      "useTimePrecision": false,
+      "valueMaps": [
+        {
+          "op": "=",
+          "text": "Ramp Up",
+          "value": "0"
+        },
+        {
+          "op": "=",
+          "text": "Slow Increase",
+          "value": "1"
+        },
+        {
+          "op": "=",
+          "text": "Hold",
+          "value": "2"
+        },
+        {
+          "op": "=",
+          "text": "Slow Decrease",
+          "value": "3"
+        },
+        {
+          "op": "=",
+          "text": "Critical",
+          "value": "4"
+        }
+      ],
+      "valueTextColor": "#000000",
+      "writeAllValues": false,
+      "writeLastValue": true,
+      "writeMetricNames": false
+    },
+    {
+      "activePatternIndex": 0,
+      "defaultPattern": {
+        "bgColors": "green|orange|red",
+        "bgColors_overrides": "",
+        "clickable_cells_link": "",
+        "col_name": "Hashrate",
+        "decimals": "2",
+        "delimiter": "|",
+        "enable_bgColor": false,
+        "enable_bgColor_overrides": false,
+        "enable_clickable_cells": false,
+        "enable_textColor": false,
+        "enable_textColor_overrides": false,
+        "enable_time_based_thresholds": false,
+        "enable_transform": false,
+        "enable_transform_overrides": false,
+        "filter": {
+          "value_above": "",
+          "value_below": ""
+        },
+        "format": "MHs",
+        "name": "Default Pattern",
+        "null_color": "darkred",
+        "null_textcolor": "black",
+        "null_value": "No data",
+        "pattern": "*",
+        "row_col_wrapper": "_",
+        "row_name": "_1_",
+        "textColors": "red|orange|green",
+        "textColors_overrides": "2->black",
+        "thresholds": "",
+        "time_based_thresholds": [],
+        "tooltipTemplate": "Series : _series_ <br/>Row Name : _row_name_ <br/>Col Name : _col_name_ <br/>Value : _value_",
+        "transform_values": "Ramp Up|Slow Increase|Hold|Slow Decrease|Critical",
+        "transform_values_overrides": "",
+        "valueName": "current"
+      },
+      "default_title_for_rows": "Hashrate Type",
+      "gridPos": {
+        "h": 8,
+        "w": 5,
+        "x": 0,
+        "y": 5
+      },
+      "id": 9,
+      "links": [],
+      "options": {},
+      "patterns": [],
+      "row_col_wrapper": "_",
+      "targets": [
+        {
+          "expr": "minerator_core_hashrate_accepted_per_min{device=\"$device\", core=\"$core\"}",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "Accepted",
+          "refId": "A"
+        },
+        {
+          "expr": "minerator_core_hashrate_submitted_per_min{device=\"$device\", core=\"$core\"}",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "Submitted",
+          "refId": "B"
+        },
+        {
+          "expr": "minerator_core_hashrate_submitted_per_min{device=\"$device\", core=\"$core\"}-minerator_core_hashrate_accepted_per_min{device=\"$device\", core=\"$core\"}",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "Rejected",
+          "refId": "C"
+        },
+        {
+          "expr": "minerator_core_hashrate_valid_per_min{device=\"$device\", core=\"$core\"}",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "Valid",
+          "refId": "D"
+        },
+        {
+          "expr": "minerator_core_hashrate_found_per_min{device=\"$device\", core=\"$core\"}",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "Found",
+          "refId": "E"
+        },
+        {
+          "expr": "minerator_core_hashrate_found_per_min{device=\"$device\", core=\"$core\"}-minerator_core_hashrate_valid_per_min{device=\"$device\", core=\"$core\"}",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "Invalid",
+          "refId": "F"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Last Minute Hashrate Overview",
+      "type": "yesoreyeram-boomtable-panel"
+    },
+    {
+      "activePatternIndex": 0,
+      "defaultPattern": {
+        "bgColors": "green|orange|red",
+        "bgColors_overrides": "",
+        "clickable_cells_link": "",
+        "col_name": "Hashrate",
+        "decimals": "2",
+        "delimiter": "|",
+        "enable_bgColor": false,
+        "enable_bgColor_overrides": false,
+        "enable_clickable_cells": false,
+        "enable_textColor": false,
+        "enable_textColor_overrides": false,
+        "enable_time_based_thresholds": false,
+        "enable_transform": false,
+        "enable_transform_overrides": false,
+        "filter": {
+          "value_above": "",
+          "value_below": ""
+        },
+        "format": "MHs",
+        "name": "Default Pattern",
+        "null_color": "darkred",
+        "null_textcolor": "black",
+        "null_value": "No data",
+        "pattern": "*",
+        "row_col_wrapper": "_",
+        "row_name": "_1_",
+        "textColors": "red|orange|green",
+        "textColors_overrides": "2->black",
+        "thresholds": "",
+        "time_based_thresholds": [],
+        "tooltipTemplate": "Series : _series_ <br/>Row Name : _row_name_ <br/>Col Name : _col_name_ <br/>Value : _value_",
+        "transform_values": "Ramp Up|Slow Increase|Hold|Slow Decrease|Critical",
+        "transform_values_overrides": "",
+        "valueName": "current"
+      },
+      "default_title_for_rows": "Hashrate Type",
+      "gridPos": {
+        "h": 8,
+        "w": 5,
+        "x": 5,
+        "y": 5
+      },
+      "id": 10,
+      "links": [],
+      "options": {},
+      "patterns": [],
+      "row_col_wrapper": "_",
+      "targets": [
+        {
+          "expr": "minerator_core_hashrate_accepted{device=\"$device\", core=\"$core\"}",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "Accepted",
+          "refId": "A"
+        },
+        {
+          "expr": "minerator_core_hashrate_submitted{device=\"$device\", core=\"$core\"}",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "Submitted",
+          "refId": "B"
+        },
+        {
+          "expr": "minerator_core_hashrate_submitted{device=\"$device\", core=\"$core\"}-minerator_core_hashrate_accepted{device=\"$device\", core=\"$core\"}",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "Rejected",
+          "refId": "C"
+        },
+        {
+          "expr": "minerator_core_hashrate_valid{device=\"$device\", core=\"$core\"}",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "Valid",
+          "refId": "D"
+        },
+        {
+          "expr": "minerator_core_hashrate_found{device=\"$device\", core=\"$core\"}",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "Found",
+          "refId": "E"
+        },
+        {
+          "expr": "minerator_core_hashrate_found{device=\"$device\", core=\"$core\"}-minerator_core_hashrate_valid{device=\"$device\", core=\"$core\"}",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "Invalid",
+          "refId": "F"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Total Hashrate Overview",
+      "type": "yesoreyeram-boomtable-panel"
+    },
+    {
+      "gridPos": {
+        "h": 8,
+        "w": 5,
+        "x": 10,
+        "y": 5
+      },
+      "id": 7,
+      "links": [],
+      "options": {
+        "fieldOptions": {
+          "calcs": [
+            "last"
+          ],
+          "defaults": {
+            "decimals": 3,
+            "max": 5,
+            "min": 0,
+            "unit": "percent"
+          },
+          "mappings": [],
+          "override": {},
+          "thresholds": [
+            {
+              "color": "green",
+              "index": 0,
+              "value": null
+            },
+            {
+              "color": "#EAB839",
+              "index": 1,
+              "value": 1
+            },
+            {
+              "color": "red",
+              "index": 2,
+              "value": 2
+            }
+          ],
+          "values": false
+        },
+        "orientation": "auto",
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true
+      },
+      "pluginVersion": "6.2.2",
+      "targets": [
+        {
+          "expr": "((minerator_core_hashrate_submitted{device=\"$device\", core=\"$core\"}-minerator_core_hashrate_accepted{device=\"$device\", core=\"$core\"})/minerator_core_hashrate_submitted{device=\"$device\", core=\"$core\"})*100",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "refId": "A"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Total Rejected Shares",
+      "type": "gauge"
+    },
+    {
+      "gridPos": {
+        "h": 8,
+        "w": 5,
+        "x": 15,
+        "y": 5
+      },
+      "id": 6,
+      "links": [],
+      "options": {
+        "fieldOptions": {
+          "calcs": [
+            "last"
+          ],
+          "defaults": {
+            "decimals": 3,
+            "max": 5,
+            "min": 0,
+            "unit": "percent"
+          },
+          "mappings": [],
+          "override": {},
+          "thresholds": [
+            {
+              "color": "green",
+              "index": 0,
+              "value": null
+            },
+            {
+              "color": "#EAB839",
+              "index": 1,
+              "value": 1
+            },
+            {
+              "color": "red",
+              "index": 2,
+              "value": 2
+            }
+          ],
+          "values": false
+        },
+        "orientation": "auto",
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true
+      },
+      "pluginVersion": "6.2.2",
+      "targets": [
+        {
+          "expr": "((minerator_core_hashrate_found{device=\"$device\", core=\"$core\"}-minerator_core_hashrate_valid{device=\"$device\", core=\"$core\"})/minerator_core_hashrate_found{device=\"$device\", core=\"$core\"})*100",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "refId": "A"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Total Hardware Errors",
+      "type": "gauge"
+    },
+    {
+      "cacheTimeout": null,
+      "colorBackground": false,
+      "colorValue": false,
+      "colors": [
+        "#299c46",
+        "rgba(237, 129, 40, 0.89)",
+        "#d44a3a"
+      ],
+      "format": "none",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 20,
+        "y": 5
+      },
+      "id": 12,
+      "interval": null,
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "options": {},
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "",
+      "prefixFontSize": "50%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": true
+      },
+      "tableColumn": "",
+      "targets": [
+        {
+          "expr": "minerator_core_total_nonces{device=\"$device\", core=\"$core\"}",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "refId": "A"
+        }
+      ],
+      "thresholds": "",
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Total Nonces",
+      "type": "singlestat",
+      "valueFontSize": "80%",
+      "valueMaps": [
+        {
+          "op": "=",
+          "text": "N/A",
+          "value": "null"
+        }
+      ],
+      "valueName": "current"
+    },
+    {
+      "cacheTimeout": null,
+      "colorBackground": false,
+      "colorValue": false,
+      "colors": [
+        "#299c46",
+        "rgba(237, 129, 40, 0.89)",
+        "#d44a3a"
+      ],
+      "format": "none",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 20,
+        "y": 9
+      },
+      "id": 13,
+      "interval": null,
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "options": {},
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "",
+      "prefixFontSize": "50%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": true
+      },
+      "tableColumn": "",
+      "targets": [
+        {
+          "expr": "minerator_core_bad_nonces{device=\"$device\", core=\"$core\"}",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "refId": "A"
+        }
+      ],
+      "thresholds": "",
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Bad Nonces",
+      "type": "singlestat",
+      "valueFontSize": "80%",
+      "valueMaps": [
+        {
+          "op": "=",
+          "text": "N/A",
+          "value": "null"
+        }
+      ],
+      "valueName": "current"
+    },
+    {
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 13
+      },
+      "id": 17,
+      "title": "Core Plots",
+      "type": "row"
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "fill": 0,
+      "gridPos": {
+        "h": 12,
+        "w": 12,
+        "x": 0,
+        "y": 14
+      },
+      "id": 19,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {},
+      "percentage": false,
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "alias": "Total Average",
+          "yaxis": 1
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "minerator_core_hashrate_accepted_per_min{device=\"$device\", core=\"$core\"}",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "Last Minute",
+          "refId": "A"
+        },
+        {
+          "expr": "avg_over_time(minerator_core_hashrate_accepted_per_min{device=\"$device\", core=\"$core\"}[15m])",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "15 minute average",
+          "refId": "B"
+        },
+        {
+          "expr": "minerator_core_hashrate_accepted{device=\"$device\", core=\"$core\"}",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "Total Average",
+          "refId": "C"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Hashrate",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "MHs",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": true,
+        "alignLevel": 0
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "fill": 0,
+      "gridPos": {
+        "h": 12,
+        "w": 12,
+        "x": 12,
+        "y": 14
+      },
+      "id": 20,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {},
+      "percentage": false,
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "alias": "Hardware Errors",
+          "yaxis": 2
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "minerator_core_clock_multiplier{device=\"$device\", core=\"$core\"}",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "Clock Multiplier",
+          "refId": "A"
+        },
+        {
+          "expr": "((minerator_core_hashrate_found{device=\"$device\", core=\"$core\"}-minerator_core_hashrate_valid{device=\"$device\", core=\"$core\"})/minerator_core_hashrate_found{device=\"$device\", core=\"$core\"})*100",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "Hardware Errors",
+          "refId": "B"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Clock Multiplier + Hardware Errors",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "none",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "percent",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "fill": 0,
+      "gridPos": {
+        "h": 12,
+        "w": 12,
+        "x": 0,
+        "y": 26
+      },
+      "id": 21,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {},
+      "percentage": false,
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "alias": "Hardware Errors",
+          "yaxis": 2
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "((minerator_core_hashrate_submitted_per_min{device=\"$device\", core=\"$core\"}-minerator_core_hashrate_accepted_per_min{device=\"$device\", core=\"$core\"})/minerator_core_hashrate_submitted_per_min{device=\"$device\", core=\"$core\"})*100",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "Rejected Shares %",
+          "refId": "B"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Rejected Shares % for Last Minute",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "percent",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "percent",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": 0
+      }
+    }
+  ],
+  "refresh": false,
+  "schemaVersion": 18,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "allValue": null,
+        "current": {
+          "text": "0",
+          "value": "0"
+        },
+        "datasource": "Prometheus",
+        "definition": "label_values(minerator_core_clock_multiplier, device)",
+        "hide": 0,
+        "includeAll": false,
+        "label": "device",
+        "multi": false,
+        "name": "device",
+        "options": [
+          {
+            "selected": true,
+            "text": "0",
+            "value": "0"
+          }
+        ],
+        "query": "label_values(minerator_core_clock_multiplier, device)",
+        "refresh": 0,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {
+          "text": "0",
+          "value": "0"
+        },
+        "datasource": "Prometheus",
+        "definition": "label_values(minerator_core_clock_multiplier, core)",
+        "hide": 0,
+        "includeAll": false,
+        "label": "core",
+        "multi": false,
+        "name": "core",
+        "options": [
+          {
+            "selected": true,
+            "text": "0",
+            "value": "0"
+          }
+        ],
+        "query": "label_values(minerator_core_clock_multiplier, core)",
+        "refresh": "1m",
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      }
+    ]
+  },
+  "time": {
+    "from": "now-1h",
+    "to": "now"
+  },
+  "timepicker": {
+    "refresh_intervals": [
+      "5s",
+      "10s",
+      "30s",
+      "1m",
+      "5m",
+      "15m",
+      "30m",
+      "1h",
+      "2h",
+      "1d"
+    ],
+    "time_options": [
+      "5m",
+      "15m",
+      "1h",
+      "6h",
+      "12h",
+      "24h",
+      "2d",
+      "7d",
+      "30d"
+    ]
+  },
+  "timezone": "",
+  "title": "Core",
+  "uid": "MXmmYHnZz",
+  "version": 16
+}
