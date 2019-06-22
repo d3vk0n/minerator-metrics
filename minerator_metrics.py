@@ -242,6 +242,8 @@ class MineratorParser():
         devices = data['workers'][list(data['workers'].keys())[0]]['devices'] #must be a better way than this
         for dev_i, dev in enumerate(devices):
             #BMC stuff
+            if not "bmc" in dev:
+                break
             bmc = dev['bmc']
             l = [self.name, dev_i]
             metrics.vin.labels(*l).set(bmc['vin'])
@@ -363,6 +365,8 @@ class MineratorParser():
                     metrics.core_requested.labels(self.name, dev_i, core_i).set(filter_total(s, e, total['requested']))
                     metrics.core_submitted.labels(self.name, dev_i, core_i).set(filter_total(s, e, total['submitted']))
                     metrics.core_valid.labels(self.name, dev_i, core_i).set(filter_total(s, e, total['valid']))
+
+
 class MetricExporter():
     def __init__(self, url="http://localhost", interval=30, port=9091):
         self.url = "{}/api/status".format(url)
