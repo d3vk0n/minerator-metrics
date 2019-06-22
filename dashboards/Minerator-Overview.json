@@ -105,7 +105,7 @@
         {
           "expr": "topk(1, minerator_hashrate_accepted)",
           "format": "time_series",
-          "instant": false,
+          "instant": true,
           "intervalFactor": 1,
           "legendFormat": "{{ pool }}",
           "refId": "A"
@@ -238,7 +238,7 @@
         "enable_bgColor_overrides": true,
         "enable_clickable_cells": true,
         "enable_textColor": false,
-        "enable_textColor_overrides": false,
+        "enable_textColor_overrides": true,
         "enable_time_based_thresholds": false,
         "enable_transform": false,
         "enable_transform_overrides": true,
@@ -255,7 +255,7 @@
         "row_col_wrapper": "_",
         "row_name": "_0_",
         "textColors": "red|orange|green",
-        "textColors_overrides": "0->red|2->green|1->yellow",
+        "textColors_overrides": "2->black",
         "thresholds": "70,90",
         "time_based_thresholds": [],
         "tooltipTemplate": "Series : _series_ <br/>Row Name : _row_name_ <br/>Col Name : _col_name_ <br/>Value : _value_",
@@ -1005,5 +1005,5 @@
   "timezone": "",
   "title": "Minerator Overview",
   "uid": "GK4Y0DnZz",
-  "version": 32
+  "version": 36
 }

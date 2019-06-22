@@ -16,7 +16,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": 2,
-  "iteration": 1560432908053,
+  "iteration": 1561230672959,
   "links": [],
   "panels": [
     {
@@ -775,7 +775,7 @@
           }
         ],
         "query": "label_values(minerator_sysmon_health, sysmon)",
-        "refresh": "1m",
+        "refresh": 0,
         "regex": "",
         "skipUrlSync": false,
         "sort": 0,
@@ -788,7 +788,7 @@
     ]
   },
   "time": {
-    "from": "now-1h",
+    "from": "now-6h",
     "to": "now"
   },
   "timepicker": {

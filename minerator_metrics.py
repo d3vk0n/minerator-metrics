@@ -162,6 +162,11 @@ class MineratorParser():
             return float(v) / ((float(end)-float(start))/1000000000)
 
         #Loop through fee dict
+
+        #first check minerator is loaded.. should have data['fee']['algo'] set
+        if not "algo" in data['fee']['allmine-fee-v1'][0]:
+            return
+
         for _, fee_data_list in data['fee'].items():
             fee_data = fee_data_list[0] #TODO: do we need to loop over this fee list?
             for algo_name, algo_info in fee_data['algo'].items():
@@ -175,7 +180,7 @@ class MineratorParser():
                 e = per_min['endTime']
 
                 #Avoid divide by zero when minerator api is starting up
-                if s != 0 and e != 0:
+                if (s != 0 and e != 0) and ( s != e ):
                     metrics.fee_accepted_per_min.labels(*labs).set(filter_total(s, e, per_min['accepted']))
                     metrics.fee_calculated_per_min.labels(*labs).set(filter_total(s, e, per_min['calculated']))
                     metrics.fee_found_per_min.labels(*labs).set(filter_total(s, e, per_min['found']))
@@ -187,7 +192,7 @@ class MineratorParser():
                 e = total['endTime']
 
                 #Avoid divide by zero when minerator api is starting up
-                if s != 0 and e != 0:
+                if (s != 0 and e != 0) and (s != e):
                     metrics.fee_accepted.labels(*labs).set(filter_total(s, e, total['accepted']))
                     metrics.fee_calculated.labels(*labs).set(filter_total(s, e, total['calculated']))
                     metrics.fee_found.labels(*labs).set(filter_total(s, e, total['found']))
@@ -211,7 +216,7 @@ class MineratorParser():
                 e = per_min['endTime']
 
                 #Avoid divide by zero when minerator api is starting up
-                if s != 0 and e != 0:
+                if (s != 0 and e != 0) and (s != e):
                     metrics.accepted_per_min.labels(*labs).set(filter_total(s, e, per_min['accepted']))
                     metrics.calculated_per_min.labels(*labs).set(filter_total(s, e, per_min['calculated']))
                     metrics.found_per_min.labels(*labs).set(filter_total(s, e, per_min['found']))
@@ -223,7 +228,7 @@ class MineratorParser():
                 e = total['endTime']
 
                 #Avoid divide by zero when minerator api is starting up
-                if s != 0 and e != 0:
+                if (s != 0 and e != 0) and (s != e):
                     metrics.accepted.labels(*labs).set(filter_total(s, e, total['accepted']))
                     metrics.calculated.labels(*labs).set(filter_total(s, e, total['calculated']))
                     metrics.found.labels(*labs).set(filter_total(s, e, total['found']))
@@ -339,7 +344,7 @@ class MineratorParser():
                 e = per_min['endTime']
 
                 #Avoid divide by zero when minerator api is starting up
-                if s != 0 and e != 0:
+                if (s != 0 and e != 0) and (s != e):
                     metrics.core_accepted_per_min.labels(self.name, dev_i, core_i).set(filter_total(s, e, per_min['accepted']))
                     metrics.core_calculated_per_min.labels(self.name, dev_i, core_i).set(filter_total(s, e, per_min['calculated']))
                     metrics.core_found_per_min.labels(self.name, dev_i, core_i).set(filter_total(s, e, per_min['found']))
@@ -351,15 +356,13 @@ class MineratorParser():
                 e = total['endTime']
 
                 #Avoid divide by zero when minerator api is starting up
-                if s != 0 and e != 0:
+                if (s != 0 and e != 0) and (s != e):
                     metrics.core_accepted.labels(self.name, dev_i, core_i).set(filter_total(s, e, total['accepted']))
                     metrics.core_calculated.labels(self.name, dev_i, core_i).set(filter_total(s, e, total['calculated']))
                     metrics.core_found.labels(self.name, dev_i, core_i).set(filter_total(s, e, total['found']))
                     metrics.core_requested.labels(self.name, dev_i, core_i).set(filter_total(s, e, total['requested']))
                     metrics.core_submitted.labels(self.name, dev_i, core_i).set(filter_total(s, e, total['submitted']))
                     metrics.core_valid.labels(self.name, dev_i, core_i).set(filter_total(s, e, total['valid']))
-
-
 class MetricExporter():
     def __init__(self, url="http://localhost", interval=30, port=9091):
         self.url = "{}/api/status".format(url)

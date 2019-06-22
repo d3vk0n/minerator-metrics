@@ -16,7 +16,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": 5,
-  "iteration": 1560433053693,
+  "iteration": 1561230603348,
   "links": [],
   "panels": [
     {
@@ -1098,7 +1098,7 @@
           }
         ],
         "query": "label_values(minerator_core_clock_multiplier, core)",
-        "refresh": "1m",
+        "refresh": 0,
         "regex": "",
         "skipUrlSync": false,
         "sort": 0,
@@ -1111,7 +1111,7 @@
     ]
   },
   "time": {
-    "from": "now-1h",
+    "from": "now-6h",
     "to": "now"
   },
   "timepicker": {

@@ -15,8 +15,8 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "id": 2,
-  "iteration": 1560440363840,
+  "id": 1,
+  "iteration": 1561230616481,
   "links": [],
   "panels": [
     {
@@ -64,97 +64,6 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
-      "decimals": 2,
-      "format": "MHs",
-      "gauge": {
-        "maxValue": 100,
-        "minValue": 0,
-        "show": false,
-        "thresholdLabels": false,
-        "thresholdMarkers": true
-      },
-      "gridPos": {
-        "h": 6,
-        "w": 3,
-        "x": 3,
-        "y": 1
-      },
-      "id": 52,
-      "interval": null,
-      "links": [
-        {
-          "dashboard": "Core",
-          "params": "var-device=$device&var-core=0",
-          "title": "Hashrate Details",
-          "type": "dashboard",
-          "url": "/d/MXmmYHnZz/core"
-        }
-      ],
-      "mappingType": 1,
-      "mappingTypes": [
-        {
-          "name": "value to text",
-          "value": 1
-        },
-        {
-          "name": "range to text",
-          "value": 2
-        }
-      ],
-      "maxDataPoints": 100,
-      "nullPointMode": "connected",
-      "nullText": null,
-      "options": {},
-      "postfix": "",
-      "postfixFontSize": "50%",
-      "prefix": "",
-      "prefixFontSize": "50%",
-      "rangeMaps": [
-        {
-          "from": "null",
-          "text": "N/A",
-          "to": "null"
-        }
-      ],
-      "sparkline": {
-        "fillColor": "rgba(31, 118, 189, 0.18)",
-        "full": false,
-        "lineColor": "rgb(31, 120, 193)",
-        "show": true
-      },
-      "tableColumn": "",
-      "targets": [
-        {
-          "expr": "minerator_core_hashrate_accepted{device=\"$device\"}",
-          "format": "time_series",
-          "intervalFactor": 1,
-          "refId": "A"
-        }
-      ],
-      "thresholds": "",
-      "timeFrom": null,
-      "timeShift": null,
-      "title": "Total Accepted Hashrate",
-      "type": "singlestat",
-      "valueFontSize": "80%",
-      "valueMaps": [
-        {
-          "op": "=",
-          "text": "N/A",
-          "value": "null"
-        }
-      ],
-      "valueName": "current"
-    },
-    {
-      "cacheTimeout": null,
-      "colorBackground": false,
-      "colorValue": false,
-      "colors": [
-        "#299c46",
-        "rgba(237, 129, 40, 0.89)",
-        "#d44a3a"
-      ],
       "decimals": 3,
       "format": "none",
       "gauge": {
@@ -165,12 +74,12 @@
         "thresholdMarkers": true
       },
       "gridPos": {
-        "h": 6,
-        "w": 3,
-        "x": 6,
+        "h": 2,
+        "w": 6,
+        "x": 3,
         "y": 1
       },
-      "id": 17,
+      "id": 74,
       "interval": null,
       "links": [],
       "mappingType": 1,
@@ -203,13 +112,14 @@
         "fillColor": "rgba(31, 118, 189, 0.18)",
         "full": false,
         "lineColor": "rgb(31, 120, 193)",
-        "show": true
+        "show": false
       },
       "tableColumn": "",
       "targets": [
         {
-          "expr": "minerator_core_clock_multiplier{device=\"$device\"}",
+          "expr": "max(minerator_core_hashrate_valid{device=\"$device\"}) without (core)/minerator_input_power{device=\"$device\"}",
           "format": "time_series",
+          "instant": false,
           "intervalFactor": 1,
           "refId": "A"
         }
@@ -217,7 +127,7 @@
       "thresholds": "",
       "timeFrom": null,
       "timeShift": null,
-      "title": "Clock Multiplier",
+      "title": "MH/Watt",
       "type": "singlestat",
       "valueFontSize": "80%",
       "valueMaps": [
@@ -377,9 +287,9 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "fill": 1,
+      "fill": 0,
       "gridPos": {
-        "h": 12,
+        "h": 11,
         "w": 9,
         "x": 15,
         "y": 1
@@ -411,7 +321,12 @@
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
-      "seriesOverrides": [],
+      "seriesOverrides": [
+        {
+          "alias": "Multiplier",
+          "yaxis": 2
+        }
+      ],
       "spaceLength": 10,
       "stack": false,
       "steppedLine": false,
@@ -420,8 +335,15 @@
           "expr": "avg_over_time(minerator_core_hashrate_accepted_per_min{device=\"$device\"}[15m])",
           "format": "time_series",
           "intervalFactor": 1,
-          "legendFormat": "Core {{ core }}",
+          "legendFormat": "Hashrate",
           "refId": "A"
+        },
+        {
+          "expr": "minerator_core_clock_multiplier{device=\"$device\"}",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "Multiplier",
+          "refId": "B"
         }
       ],
       "thresholds": [],
@@ -466,8 +388,182 @@
       }
     },
     {
+      "cacheTimeout": null,
+      "colorBackground": false,
+      "colorValue": false,
+      "colors": [
+        "#299c46",
+        "rgba(237, 129, 40, 0.89)",
+        "#d44a3a"
+      ],
+      "decimals": 2,
+      "format": "MHs",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
       "gridPos": {
-        "h": 6,
+        "h": 4,
+        "w": 3,
+        "x": 3,
+        "y": 3
+      },
+      "id": 52,
+      "interval": null,
+      "links": [
+        {
+          "dashboard": "Core",
+          "params": "var-device=$device&var-core=0",
+          "title": "Hashrate Details",
+          "type": "dashboard",
+          "url": "/d/MXmmYHnZz/core"
+        }
+      ],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "options": {},
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "",
+      "prefixFontSize": "50%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": true
+      },
+      "tableColumn": "",
+      "targets": [
+        {
+          "expr": "minerator_core_hashrate_accepted{device=\"$device\"}",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "refId": "A"
+        }
+      ],
+      "thresholds": "",
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Total Accepted Hashrate",
+      "type": "singlestat",
+      "valueFontSize": "80%",
+      "valueMaps": [
+        {
+          "op": "=",
+          "text": "N/A",
+          "value": "null"
+        }
+      ],
+      "valueName": "current"
+    },
+    {
+      "cacheTimeout": null,
+      "colorBackground": false,
+      "colorValue": false,
+      "colors": [
+        "#299c46",
+        "rgba(237, 129, 40, 0.89)",
+        "#d44a3a"
+      ],
+      "decimals": 3,
+      "format": "none",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 3,
+        "x": 6,
+        "y": 3
+      },
+      "id": 17,
+      "interval": null,
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "options": {},
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "",
+      "prefixFontSize": "50%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": true
+      },
+      "tableColumn": "",
+      "targets": [
+        {
+          "expr": "minerator_core_clock_multiplier{device=\"$device\"}",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "refId": "A"
+        }
+      ],
+      "thresholds": "",
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Clock Multiplier",
+      "type": "singlestat",
+      "valueFontSize": "80%",
+      "valueMaps": [
+        {
+          "op": "=",
+          "text": "N/A",
+          "value": "null"
+        }
+      ],
+      "valueName": "current"
+    },
+    {
+      "gridPos": {
+        "h": 5,
         "w": 9,
         "x": 0,
         "y": 7
@@ -489,7 +585,7 @@
             "last"
           ],
           "defaults": {
-            "max": 300,
+            "max": 2500,
             "min": 0,
             "unit": "MHs"
           },
@@ -570,7 +666,7 @@
         "thresholdMarkers": true
       },
       "gridPos": {
-        "h": 6,
+        "h": 5,
         "w": 3,
         "x": 9,
         "y": 7
@@ -638,7 +734,7 @@
       "cacheTimeout": null,
       "datasource": "Prometheus",
       "gridPos": {
-        "h": 6,
+        "h": 5,
         "w": 3,
         "x": 12,
         "y": 7
@@ -730,7 +826,7 @@
         "h": 11,
         "w": 24,
         "x": 0,
-        "y": 13
+        "y": 12
       },
       "highlightOnMouseover": true,
       "id": 40,
@@ -939,7 +1035,7 @@
         "h": 6,
         "w": 5,
         "x": 0,
-        "y": 24
+        "y": 23
       },
       "id": 24,
       "links": [
@@ -1032,7 +1128,7 @@
         "h": 6,
         "w": 5,
         "x": 5,
-        "y": 24
+        "y": 23
       },
       "id": 28,
       "links": [
@@ -1163,7 +1259,7 @@
         "h": 9,
         "w": 7,
         "x": 10,
-        "y": 24
+        "y": 23
       },
       "hide_first_column": false,
       "id": 34,
@@ -1332,7 +1428,7 @@
         "h": 9,
         "w": 7,
         "x": 17,
-        "y": 24
+        "y": 23
       },
       "id": 15,
       "links": [],
@@ -1424,9 +1520,9 @@
         "h": 6,
         "w": 5,
         "x": 0,
-        "y": 30
+        "y": 29
       },
-      "id": 60,
+      "id": 79,
       "links": [
         {
           "dashboard": "sysmon",
@@ -1440,7 +1536,7 @@
       "pageSize": null,
       "repeat": null,
       "repeatDirection": "v",
-      "repeatIteration": 1560440363840,
+      "repeatIteration": 1561230616481,
       "repeatPanelId": 24,
       "scopedVars": {
         "sysmon": {
@@ -1519,9 +1615,9 @@
         "h": 6,
         "w": 5,
         "x": 5,
-        "y": 30
+        "y": 29
       },
-      "id": 62,
+      "id": 81,
       "links": [
         {
           "dashboard": "Phase",
@@ -1535,7 +1631,7 @@
       "pageSize": null,
       "repeat": null,
       "repeatDirection": "v",
-      "repeatIteration": 1560440363840,
+      "repeatIteration": 1561230616481,
       "repeatPanelId": 28,
       "scopedVars": {
         "phase": {
@@ -1620,7 +1716,7 @@
         "h": 9,
         "w": 3,
         "x": 10,
-        "y": 33
+        "y": 32
       },
       "id": 21,
       "links": [],
@@ -1711,7 +1807,7 @@
         "h": 9,
         "w": 3,
         "x": 13,
-        "y": 33
+        "y": 32
       },
       "id": 22,
       "links": [],
@@ -1794,9 +1890,9 @@
         "h": 6,
         "w": 5,
         "x": 0,
-        "y": 36
+        "y": 35
       },
-      "id": 61,
+      "id": 80,
       "links": [
         {
           "dashboard": "sysmon",
@@ -1810,7 +1906,7 @@
       "pageSize": null,
       "repeat": null,
       "repeatDirection": "v",
-      "repeatIteration": 1560440363840,
+      "repeatIteration": 1561230616481,
       "repeatPanelId": 24,
       "scopedVars": {
         "sysmon": {
@@ -1883,14 +1979,431 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 42
+        "y": 41
       },
       "id": 6,
       "panels": [],
-      "title": "Row title",
+      "title": "Plots",
       "type": "row"
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "fill": 0,
+      "gridPos": {
+        "h": 14,
+        "w": 12,
+        "x": 0,
+        "y": 42
+      },
+      "id": 72,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {},
+      "percentage": false,
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "alias": "Hardware Errors",
+          "yaxis": 2
+        },
+        {
+          "alias": "Power",
+          "yaxis": 2
+        },
+        {
+          "alias": "minerator_core_hashrate_accepted{core=\"0\",device=\"0\",instance=\"192.168.23.24:9090\",job=\"minerator\",rig=\"fpga\"}",
+          "yaxis": 2
+        },
+        {
+          "alias": "Hashrate",
+          "yaxis": 2
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "max(minerator_core_hashrate_valid_per_min{device=\"$device\"}) without (core)/minerator_input_power{device=\"$device\"}",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "Efficiency",
+          "refId": "A"
+        },
+        {
+          "expr": "minerator_core_hashrate_accepted_per_min{device=\"$device\"}",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "Hashrate",
+          "refId": "B"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Efficiency (Minute Average)",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "none",
+          "label": "MH/Watt",
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "MHs",
+          "label": "",
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "fill": 0,
+      "gridPos": {
+        "h": 14,
+        "w": 12,
+        "x": 12,
+        "y": 42
+      },
+      "id": 78,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {},
+      "percentage": false,
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "alias": "Hardware Errors",
+          "yaxis": 2
+        },
+        {
+          "alias": "Power",
+          "yaxis": 2
+        },
+        {
+          "alias": "minerator_core_hashrate_accepted{core=\"0\",device=\"0\",instance=\"192.168.23.24:9090\",job=\"minerator\",rig=\"fpga\"}",
+          "yaxis": 2
+        },
+        {
+          "alias": "Hashrate",
+          "yaxis": 2
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "max(minerator_core_hashrate_valid{device=\"$device\"}) without (core)/minerator_input_power{device=\"$device\"}",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "Efficiency",
+          "refId": "A"
+        },
+        {
+          "expr": "minerator_core_hashrate_valid{device=\"$device\"}",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "Hashrate",
+          "refId": "B"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Efficiency (Total)",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "none",
+          "label": "MH/Watt",
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "MHs",
+          "label": "",
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "fill": 0,
+      "gridPos": {
+        "h": 14,
+        "w": 12,
+        "x": 0,
+        "y": 56
+      },
+      "id": 67,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {},
+      "percentage": false,
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "alias": "Hardware Errors",
+          "yaxis": 2
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "minerator_core_clock_multiplier{device=\"$device\"}",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "Clock Multi",
+          "refId": "A"
+        },
+        {
+          "expr": "((minerator_core_hashrate_found_per_min{device=\"$device\"}-minerator_core_hashrate_valid_per_min{device=\"$device\"})/minerator_core_hashrate_found_per_min{device=\"$device\"})*100",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "Hardware Errors",
+          "refId": "B"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Multiplier vs Hardware Errors",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "label": "Multiplier",
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "percent",
+          "label": "Hardware Errors",
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "fill": 0,
+      "gridPos": {
+        "h": 14,
+        "w": 12,
+        "x": 12,
+        "y": 56
+      },
+      "id": 71,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {},
+      "percentage": false,
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "alias": "Hardware Errors",
+          "yaxis": 2
+        },
+        {
+          "alias": "Power",
+          "yaxis": 2
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "minerator_core_clock_multiplier{device=\"$device\"}",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "Clock Multi",
+          "refId": "A"
+        },
+        {
+          "expr": "minerator_input_power{device=\"$device\"}",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "Power",
+          "refId": "B"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Multipler vs Input Power",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "none",
+          "label": "Multiplier",
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "watt",
+          "label": "Input Power",
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
     }
   ],
+  "refresh": "5s",
   "schemaVersion": 18,
   "style": "dark",
   "tags": [],
@@ -1899,9 +2412,8 @@
       {
         "allValue": null,
         "current": {
-          "isNone": true,
-          "text": "None",
-          "value": ""
+          "text": "0",
+          "value": "0"
         },
         "datasource": "Prometheus",
         "definition": "label_values(minerator_core_clock_multiplier, device)",
@@ -1987,9 +2499,25 @@
         "label": null,
         "multi": true,
         "name": "phase",
-        "options": [],
+        "options": [
+          {
+            "selected": false,
+            "text": "All",
+            "value": "$__all"
+          },
+          {
+            "selected": true,
+            "text": "0",
+            "value": "0"
+          },
+          {
+            "selected": true,
+            "text": "1",
+            "value": "1"
+          }
+        ],
         "query": "label_values(minerator_phase_temp, phase)",
-        "refresh": "1m",
+        "refresh": 0,
         "regex": "",
         "skipUrlSync": false,
         "sort": 0,
@@ -2002,7 +2530,7 @@
     ]
   },
   "time": {
-    "from": "now-1h",
+    "from": "now-6h",
     "to": "now"
   },
   "timepicker": {
@@ -2033,5 +2561,5 @@
   "timezone": "",
   "title": "Device",
   "uid": "usxDW47Zk",
-  "version": 4
+  "version": 70
 }

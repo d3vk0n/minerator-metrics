@@ -1,4 +1,3 @@
-set -xve
 add-apt-repository universe
 apt-get -y install prometheus curl
 
