@@ -16,7 +16,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": 2,
-  "iteration": 1561230672959,
+  "iteration": 1577902066254,
   "links": [],
   "panels": [
     {
@@ -719,7 +719,7 @@
           "text": "0",
           "value": "0"
         },
-        "datasource": "Prometheus",
+        "datasource": "Prometheus-1",
         "definition": "label_values(minerator_core_clock_multiplier, device)",
         "hide": 0,
         "includeAll": false,
@@ -750,7 +750,7 @@
           "text": "0",
           "value": "0"
         },
-        "datasource": "Prometheus",
+        "datasource": "Prometheus-1",
         "definition": "label_values(minerator_sysmon_health, sysmon)",
         "hide": 0,
         "includeAll": false,
