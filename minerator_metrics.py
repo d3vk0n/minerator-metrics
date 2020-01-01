@@ -400,7 +400,13 @@ class MetricExporter():
                 time.sleep(self.interval)
                 continue
 
-            self.parser.update_metrics(self.metrics, r.json())
+            try:
+                self.parser.update_metrics(self.metrics, r.json())
+            except e:
+                #JSONDecodeError can happen here.. but probably others
+                #this is bad but at least the program will recover
+                print("WARNING: skipping exception : {}".format(e))
+
             time.sleep(self.interval)
 
 
