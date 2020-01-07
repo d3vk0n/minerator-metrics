@@ -27,7 +27,8 @@ systemctl start grafana-server
 
 
 #Configure firewall
-./setup_network.sh
+#Allow user to do this themselves
+#./setup_network.sh
 
 
 mkdir /var/local/minerator-metrics
@@ -37,5 +38,10 @@ cp minerator_metrics.py /var/local/minerator-metrics/
 ./setup_service.sh
 
 
+echo """
+minerator-metrics installation complete.
+If you want to access grafana from another computer you _may_ need to run setup_network.sh (as root)
+This will configure and enable to ubuntu firewall
+"""
 
 

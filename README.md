@@ -20,6 +20,9 @@ sudo su
 ./setup.sh
 ```
 
+If you can't access grafana remotely you need to also run ```./setup_network.sh``` (as root). 
+This script will enable and configure the ubuntu firewall to allow remote connections to grafana/prometheus.
+
 For Ubuntu 18.04 systems the setup.sh script can be used (run as root).
 For other systems, check the scripts to see what needs installing/configuring.
 
