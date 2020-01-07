@@ -1,4 +1,52 @@
 {
+  "__inputs": [
+    {
+      "name": "DS_LOCAL_PROMETHEUS",
+      "label": "local_prometheus",
+      "description": "",
+      "type": "datasource",
+      "pluginId": "prometheus",
+      "pluginName": "Prometheus"
+    }
+  ],
+  "__requires": [
+    {
+      "type": "grafana",
+      "id": "grafana",
+      "name": "Grafana",
+      "version": "6.5.2"
+    },
+    {
+      "type": "panel",
+      "id": "graph",
+      "name": "Graph",
+      "version": ""
+    },
+    {
+      "type": "panel",
+      "id": "natel-discrete-panel",
+      "name": "Discrete",
+      "version": "0.0.9"
+    },
+    {
+      "type": "datasource",
+      "id": "prometheus",
+      "name": "Prometheus",
+      "version": "1.0.0"
+    },
+    {
+      "type": "panel",
+      "id": "table",
+      "name": "Table",
+      "version": ""
+    },
+    {
+      "type": "panel",
+      "id": "yesoreyeram-boomtable-panel",
+      "name": "Boom Table",
+      "version": "1.0.0"
+    }
+  ],
   "annotations": {
     "list": [
       {
@@ -15,8 +63,8 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "id": 2,
-  "iteration": 1577902066254,
+  "id": null,
+  "iteration": 1578414773327,
   "links": [],
   "panels": [
     {
@@ -48,6 +96,7 @@
         }
       ],
       "crosshairColor": "#8F070C",
+      "datasource": "${DS_LOCAL_PROMETHEUS}",
       "display": "timeline",
       "expandFromQueryS": 0,
       "extendLastValue": true,
@@ -167,6 +216,7 @@
     },
     {
       "activePatternIndex": 0,
+      "datasource": "${DS_LOCAL_PROMETHEUS}",
       "debug_mode": false,
       "defaultPattern": {
         "bgColors": "green|orange|red",
@@ -258,13 +308,16 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
+      "datasource": "${DS_LOCAL_PROMETHEUS}",
       "fill": 1,
+      "fillGradient": 0,
       "gridPos": {
         "h": 11,
         "w": 16,
         "x": 8,
         "y": 4
       },
+      "hiddenSeries": false,
       "id": 2,
       "legend": {
         "avg": false,
@@ -279,7 +332,9 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
-      "options": {},
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 2,
       "points": false,
@@ -353,6 +408,7 @@
           "value": "max"
         }
       ],
+      "datasource": "${DS_LOCAL_PROMETHEUS}",
       "fontSize": "100%",
       "gridPos": {
         "h": 6,
@@ -446,13 +502,16 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
+      "datasource": "${DS_LOCAL_PROMETHEUS}",
       "fill": 1,
+      "fillGradient": 0,
       "gridPos": {
         "h": 10,
         "w": 8,
         "x": 0,
         "y": 15
       },
+      "hiddenSeries": false,
       "id": 4,
       "legend": {
         "avg": false,
@@ -467,7 +526,9 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
-      "options": {},
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 2,
       "points": false,
@@ -531,13 +592,16 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
+      "datasource": "${DS_LOCAL_PROMETHEUS}",
       "fill": 1,
+      "fillGradient": 0,
       "gridPos": {
         "h": 10,
         "w": 8,
         "x": 8,
         "y": 15
       },
+      "hiddenSeries": false,
       "id": 6,
       "legend": {
         "avg": false,
@@ -552,7 +616,9 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
-      "options": {},
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 2,
       "points": false,
@@ -616,13 +682,16 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
+      "datasource": "${DS_LOCAL_PROMETHEUS}",
       "fill": 1,
+      "fillGradient": 0,
       "gridPos": {
         "h": 10,
         "w": 8,
         "x": 16,
         "y": 15
       },
+      "hiddenSeries": false,
       "id": 5,
       "legend": {
         "avg": false,
@@ -637,7 +706,9 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
-      "options": {},
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 2,
       "points": false,
@@ -697,6 +768,7 @@
       }
     },
     {
+      "datasource": "${DS_LOCAL_PROMETHEUS}",
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -708,33 +780,24 @@
       "type": "row"
     }
   ],
-  "schemaVersion": 18,
+  "schemaVersion": 21,
   "style": "dark",
   "tags": [],
   "templating": {
     "list": [
       {
         "allValue": null,
-        "current": {
-          "text": "0",
-          "value": "0"
-        },
-        "datasource": "Prometheus-1",
+        "current": {},
+        "datasource": "${DS_LOCAL_PROMETHEUS}",
         "definition": "label_values(minerator_core_clock_multiplier, device)",
         "hide": 0,
         "includeAll": false,
         "label": null,
         "multi": false,
         "name": "device",
-        "options": [
-          {
-            "selected": true,
-            "text": "0",
-            "value": "0"
-          }
-        ],
+        "options": [],
         "query": "label_values(minerator_core_clock_multiplier, device)",
-        "refresh": 0,
+        "refresh": 1,
         "regex": "",
         "skipUrlSync": false,
         "sort": 0,
@@ -746,36 +809,17 @@
       },
       {
         "allValue": null,
-        "current": {
-          "text": "0",
-          "value": "0"
-        },
-        "datasource": "Prometheus-1",
+        "current": {},
+        "datasource": "${DS_LOCAL_PROMETHEUS}",
         "definition": "label_values(minerator_sysmon_health, sysmon)",
         "hide": 0,
         "includeAll": false,
         "label": null,
         "multi": false,
         "name": "sysmon",
-        "options": [
-          {
-            "selected": true,
-            "text": "0",
-            "value": "0"
-          },
-          {
-            "selected": false,
-            "text": "1",
-            "value": "1"
-          },
-          {
-            "selected": false,
-            "text": "2",
-            "value": "2"
-          }
-        ],
+        "options": [],
         "query": "label_values(minerator_sysmon_health, sysmon)",
-        "refresh": 0,
+        "refresh": 1,
         "regex": "",
         "skipUrlSync": false,
         "sort": 0,
@@ -819,5 +863,5 @@
   "timezone": "",
   "title": "Sysmon",
   "uid": "phrnISnWz",
-  "version": 26
+  "version": 1
 }

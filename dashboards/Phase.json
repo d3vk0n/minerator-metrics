@@ -1,4 +1,52 @@
 {
+  "__inputs": [
+    {
+      "name": "DS_LOCAL_PROMETHEUS",
+      "label": "local_prometheus",
+      "description": "",
+      "type": "datasource",
+      "pluginId": "prometheus",
+      "pluginName": "Prometheus"
+    }
+  ],
+  "__requires": [
+    {
+      "type": "grafana",
+      "id": "grafana",
+      "name": "Grafana",
+      "version": "6.5.2"
+    },
+    {
+      "type": "panel",
+      "id": "graph",
+      "name": "Graph",
+      "version": ""
+    },
+    {
+      "type": "panel",
+      "id": "natel-discrete-panel",
+      "name": "Discrete",
+      "version": "0.0.9"
+    },
+    {
+      "type": "datasource",
+      "id": "prometheus",
+      "name": "Prometheus",
+      "version": "1.0.0"
+    },
+    {
+      "type": "panel",
+      "id": "table",
+      "name": "Table",
+      "version": ""
+    },
+    {
+      "type": "panel",
+      "id": "yesoreyeram-boomtable-panel",
+      "name": "Boom Table",
+      "version": "1.0.0"
+    }
+  ],
   "annotations": {
     "list": [
       {
@@ -15,12 +63,13 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "id": 3,
-  "iteration": 1577902056668,
+  "id": null,
+  "iteration": 1578414742851,
   "links": [],
   "panels": [
     {
       "collapsed": true,
+      "datasource": "${DS_LOCAL_PROMETHEUS}",
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -57,6 +106,7 @@
         }
       ],
       "crosshairColor": "#8F070C",
+      "datasource": "${DS_LOCAL_PROMETHEUS}",
       "display": "timeline",
       "expandFromQueryS": 0,
       "extendLastValue": true,
@@ -178,6 +228,7 @@
     },
     {
       "activePatternIndex": 0,
+      "datasource": "${DS_LOCAL_PROMETHEUS}",
       "defaultPattern": {
         "bgColors": "green|orange|red",
         "bgColors_overrides": "0->green|1->lightgreen|2->yellow|3->orange|4->red",
@@ -267,13 +318,16 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
+      "datasource": "${DS_LOCAL_PROMETHEUS}",
       "fill": 1,
+      "fillGradient": 0,
       "gridPos": {
         "h": 10,
         "w": 16,
         "x": 8,
         "y": 5
       },
+      "hiddenSeries": false,
       "id": 6,
       "legend": {
         "avg": false,
@@ -288,7 +342,9 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
-      "options": {},
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 2,
       "points": false,
@@ -362,6 +418,7 @@
           "value": "max"
         }
       ],
+      "datasource": "${DS_LOCAL_PROMETHEUS}",
       "fontSize": "100%",
       "gridPos": {
         "h": 5,
@@ -454,13 +511,16 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
+      "datasource": "${DS_LOCAL_PROMETHEUS}",
       "fill": 1,
+      "fillGradient": 0,
       "gridPos": {
         "h": 11,
         "w": 12,
         "x": 0,
         "y": 15
       },
+      "hiddenSeries": false,
       "id": 11,
       "legend": {
         "avg": false,
@@ -475,7 +535,9 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
-      "options": {},
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 2,
       "points": false,
@@ -539,13 +601,16 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
+      "datasource": "${DS_LOCAL_PROMETHEUS}",
       "fill": 1,
+      "fillGradient": 0,
       "gridPos": {
         "h": 11,
         "w": 12,
         "x": 12,
         "y": 15
       },
+      "hiddenSeries": false,
       "id": 12,
       "legend": {
         "avg": false,
@@ -560,7 +625,9 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
-      "options": {},
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 2,
       "points": false,
@@ -620,33 +687,24 @@
       }
     }
   ],
-  "schemaVersion": 18,
+  "schemaVersion": 21,
   "style": "dark",
   "tags": [],
   "templating": {
     "list": [
       {
         "allValue": null,
-        "current": {
-          "text": "0",
-          "value": "0"
-        },
-        "datasource": "Prometheus-1",
+        "current": {},
+        "datasource": "${DS_LOCAL_PROMETHEUS}",
         "definition": "label_values(minerator_core_clock_multiplier, device)",
         "hide": 0,
         "includeAll": false,
         "label": "device",
         "multi": false,
         "name": "device",
-        "options": [
-          {
-            "selected": true,
-            "text": "0",
-            "value": "0"
-          }
-        ],
+        "options": [],
         "query": "label_values(minerator_core_clock_multiplier, device)",
-        "refresh": 0,
+        "refresh": 1,
         "regex": "",
         "skipUrlSync": false,
         "sort": 0,
@@ -658,32 +716,17 @@
       },
       {
         "allValue": null,
-        "current": {
-          "tags": [],
-          "text": "0",
-          "value": "0"
-        },
-        "datasource": "Prometheus-1",
+        "current": {},
+        "datasource": "${DS_LOCAL_PROMETHEUS}",
         "definition": "label_values(minerator_phase_temp, phase)",
         "hide": 0,
         "includeAll": false,
         "label": "phase",
         "multi": false,
         "name": "phase",
-        "options": [
-          {
-            "selected": true,
-            "text": "0",
-            "value": "0"
-          },
-          {
-            "selected": false,
-            "text": "1",
-            "value": "1"
-          }
-        ],
+        "options": [],
         "query": "label_values(minerator_phase_temp, phase)",
-        "refresh": 0,
+        "refresh": 1,
         "regex": "",
         "skipUrlSync": false,
         "sort": 0,
@@ -727,5 +770,5 @@
   "timezone": "",
   "title": "Phase",
   "uid": "QES0-N7Zz",
-  "version": 11
+  "version": 1
 }

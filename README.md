@@ -40,19 +40,28 @@ Access grafana and log in with default username "admin", password "admin" and ch
 
 * Click "Add data source", select "Prometheus".
 * set URL to "http://localhost:9090".
-* Ensure name is "Prometheus".
+* Ensure name is "local_prometheus".
 * Click "Save and Test" and Prometheus should be configured with grafana
+
+Alternativly you can use the setup_grafana.sh script to create ths datasource.
 
 ## Import Dashboards
 
 * On the left hand side of Grafana, click the "+" symbol
 * Select Import Dashboard
-* Click "Upload .json File" and select Minerator-Overview.json from minerator-metrics/dashboards
-* Repeat process for Device, Core, Phase, and Sysmon dashboards
+* make sure you select the prometheus data source that was created earlier
+* Click "Upload .json File" and select Device.json from minerator-metrics/dashboards
+* Repeat process for Core, Phase, Sysmon, and MineratorOverview dashboards
+
 
 # Multiple rigs
 
 No dashboard for this, but metrics have a "rig" label that could be used to create one.
+
+# Notes
+
+If metrics aren't updating try ```sudo systemctl restart mineratormetrics```.
+
 
 
 

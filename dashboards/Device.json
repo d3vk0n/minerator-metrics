@@ -1,4 +1,76 @@
 {
+  "__inputs": [
+    {
+      "name": "DS_LOCAL_PROMETHEUS",
+      "label": "local_prometheus",
+      "description": "",
+      "type": "datasource",
+      "pluginId": "prometheus",
+      "pluginName": "Prometheus"
+    }
+  ],
+  "__requires": [
+    {
+      "type": "panel",
+      "id": "bargauge",
+      "name": "Bar Gauge",
+      "version": ""
+    },
+    {
+      "type": "panel",
+      "id": "dashlist",
+      "name": "Dashboard list",
+      "version": ""
+    },
+    {
+      "type": "panel",
+      "id": "gauge",
+      "name": "Gauge",
+      "version": ""
+    },
+    {
+      "type": "grafana",
+      "id": "grafana",
+      "name": "Grafana",
+      "version": "6.5.2"
+    },
+    {
+      "type": "panel",
+      "id": "graph",
+      "name": "Graph",
+      "version": ""
+    },
+    {
+      "type": "panel",
+      "id": "natel-discrete-panel",
+      "name": "Discrete",
+      "version": "0.0.9"
+    },
+    {
+      "type": "datasource",
+      "id": "prometheus",
+      "name": "Prometheus",
+      "version": "1.0.0"
+    },
+    {
+      "type": "panel",
+      "id": "singlestat",
+      "name": "Singlestat",
+      "version": ""
+    },
+    {
+      "type": "panel",
+      "id": "table",
+      "name": "Table",
+      "version": ""
+    },
+    {
+      "type": "panel",
+      "id": "yesoreyeram-boomtable-panel",
+      "name": "Boom Table",
+      "version": "1.0.0"
+    }
+  ],
   "annotations": {
     "list": [
       {
@@ -15,12 +87,13 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 1,
-  "id": 1,
-  "iteration": 1577902030551,
+  "id": null,
+  "iteration": 1578414840147,
   "links": [],
   "panels": [
     {
       "collapsed": false,
+      "datasource": "${DS_LOCAL_PROMETHEUS}",
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -33,7 +106,8 @@
       "type": "row"
     },
     {
-      "folderId": 4,
+      "datasource": "${DS_LOCAL_PROMETHEUS}",
+      "folderId": 0,
       "gridPos": {
         "h": 6,
         "w": 3,
@@ -47,7 +121,7 @@
       "options": {},
       "query": "",
       "recent": false,
-      "search": false,
+      "search": true,
       "starred": true,
       "tags": [],
       "timeFrom": null,
@@ -64,6 +138,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
+      "datasource": "${DS_LOCAL_PROMETHEUS}",
       "decimals": 2,
       "format": "watt",
       "gauge": {
@@ -147,6 +222,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
+      "datasource": "${DS_LOCAL_PROMETHEUS}",
       "decimals": 3,
       "format": "none",
       "gauge": {
@@ -230,6 +306,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
+      "datasource": "${DS_LOCAL_PROMETHEUS}",
       "decimals": 2,
       "format": "MHs",
       "gauge": {
@@ -249,11 +326,8 @@
       "interval": null,
       "links": [
         {
-          "dashboard": "Core",
-          "params": "var-device=$device&var-core=0",
           "title": "Hashrate Details",
-          "type": "dashboard",
-          "url": "/d/MXmmYHnZz/core"
+          "url": "/d/MXmmYHnZz/core?var-device=$device&var-core=0"
         }
       ],
       "mappingType": 1,
@@ -317,13 +391,16 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
+      "datasource": "${DS_LOCAL_PROMETHEUS}",
       "fill": 0,
+      "fillGradient": 0,
       "gridPos": {
         "h": 10,
         "w": 12,
         "x": 12,
         "y": 1
       },
+      "hiddenSeries": false,
       "id": 59,
       "legend": {
         "avg": false,
@@ -338,15 +415,14 @@
       "linewidth": 1,
       "links": [
         {
-          "dashboard": "Core",
-          "params": "var-device=$device&var-core=0",
           "title": "Hashrate Details",
-          "type": "dashboard",
-          "url": "/d/MXmmYHnZz/core"
+          "url": "/d/MXmmYHnZz/core?var-device=$device&var-core=0"
         }
       ],
       "nullPointMode": "null",
-      "options": {},
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 2,
       "points": false,
@@ -427,6 +503,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
+      "datasource": "${DS_LOCAL_PROMETHEUS}",
       "decimals": 2,
       "format": "celsius",
       "gauge": {
@@ -510,6 +587,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
+      "datasource": "${DS_LOCAL_PROMETHEUS}",
       "decimals": 3,
       "format": "volt",
       "gauge": {
@@ -593,6 +671,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
+      "datasource": "${DS_LOCAL_PROMETHEUS}",
       "decimals": 3,
       "format": "none",
       "gauge": {
@@ -670,7 +749,7 @@
     },
     {
       "cacheTimeout": null,
-      "datasource": "Prometheus-1",
+      "datasource": "${DS_LOCAL_PROMETHEUS}",
       "gridPos": {
         "h": 4,
         "w": 3,
@@ -685,36 +764,33 @@
             "last"
           ],
           "defaults": {
+            "mappings": [],
             "max": 5,
             "min": 0,
+            "thresholds": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 1
+              },
+              {
+                "color": "red",
+                "value": 2
+              }
+            ],
             "unit": "percent"
           },
-          "mappings": [],
           "override": {},
-          "thresholds": [
-            {
-              "color": "green",
-              "index": 0,
-              "value": null
-            },
-            {
-              "color": "#EAB839",
-              "index": 1,
-              "value": 1
-            },
-            {
-              "color": "red",
-              "index": 2,
-              "value": 2
-            }
-          ],
           "values": false
         },
         "orientation": "auto",
         "showThresholdLabels": false,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "6.2.2",
+      "pluginVersion": "6.5.2",
       "targets": [
         {
           "expr": "((minerator_core_hashrate_found{device=\"$device\"}-minerator_core_hashrate_valid{device=\"$device\"})/minerator_core_hashrate_found{device=\"$device\"})*100",
@@ -730,7 +806,7 @@
     },
     {
       "cacheTimeout": null,
-      "datasource": "Prometheus-1",
+      "datasource": "${DS_LOCAL_PROMETHEUS}",
       "gridPos": {
         "h": 4,
         "w": 3,
@@ -745,36 +821,33 @@
             "last"
           ],
           "defaults": {
+            "mappings": [],
             "max": 5,
             "min": 0,
+            "thresholds": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 1
+              },
+              {
+                "color": "red",
+                "value": 2
+              }
+            ],
             "unit": "percent"
           },
-          "mappings": [],
           "override": {},
-          "thresholds": [
-            {
-              "color": "green",
-              "index": 0,
-              "value": null
-            },
-            {
-              "color": "#EAB839",
-              "index": 1,
-              "value": 1
-            },
-            {
-              "color": "red",
-              "index": 2,
-              "value": 2
-            }
-          ],
           "values": false
         },
         "orientation": "auto",
         "showThresholdLabels": false,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "6.2.2",
+      "pluginVersion": "6.5.2",
       "targets": [
         {
           "expr": "((minerator_core_hashrate_submitted{device=\"$device\"}-minerator_core_hashrate_accepted{device=\"$device\"})/minerator_core_hashrate_submitted{device=\"$device\"})*100",
@@ -789,6 +862,7 @@
       "type": "gauge"
     },
     {
+      "datasource": "${DS_LOCAL_PROMETHEUS}",
       "gridPos": {
         "h": 4,
         "w": 6,
@@ -798,11 +872,8 @@
       "id": 42,
       "links": [
         {
-          "dashboard": "Core",
-          "params": "var-device=$device&var-core=0",
           "title": "Core",
-          "type": "dashboard",
-          "url": "/d/MXmmYHnZz/core"
+          "url": "/d/MXmmYHnZz/core?var-device=$device&var-core=0"
         }
       ],
       "options": {
@@ -812,33 +883,31 @@
             "last"
           ],
           "defaults": {
+            "mappings": [],
             "max": 2500,
             "min": 0,
+            "thresholds": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 100
+              },
+              {
+                "color": "green",
+                "value": 240
+              }
+            ],
             "unit": "MHs"
           },
-          "mappings": [],
           "override": {},
-          "thresholds": [
-            {
-              "color": "red",
-              "index": 0,
-              "value": null
-            },
-            {
-              "color": "#EAB839",
-              "index": 1,
-              "value": 100
-            },
-            {
-              "color": "green",
-              "index": 2,
-              "value": 240
-            }
-          ],
           "values": false
         },
         "orientation": "horizontal"
       },
+      "pluginVersion": "6.5.2",
       "targets": [
         {
           "expr": "minerator_core_hashrate_accepted_per_min{device=\"$device\"}",
@@ -903,11 +972,12 @@
         }
       ],
       "crosshairColor": "#8F070C",
+      "datasource": "${DS_LOCAL_PROMETHEUS}",
       "display": "timeline",
       "expandFromQueryS": 0,
       "extendLastValue": true,
       "gridPos": {
-        "h": 11,
+        "h": 3,
         "w": 24,
         "x": 0,
         "y": 11
@@ -939,6 +1009,7 @@
         {
           "expr": "minerator_aux12_current_health{device=\"$device\"}",
           "format": "time_series",
+          "hide": true,
           "intervalFactor": 1,
           "legendFormat": "AUX12V Current",
           "refId": "A"
@@ -946,6 +1017,7 @@
         {
           "expr": "minerator_aux12v_health{device=\"$device\"}",
           "format": "time_series",
+          "hide": true,
           "intervalFactor": 1,
           "legendFormat": "AUX12V",
           "refId": "B"
@@ -953,6 +1025,7 @@
         {
           "expr": "minerator_pex12v_current_health{device=\"$device\"}",
           "format": "time_series",
+          "hide": true,
           "intervalFactor": 1,
           "legendFormat": "PEX12V  Current",
           "refId": "C"
@@ -960,6 +1033,7 @@
         {
           "expr": "minerator_pex12v_health{device=\"$device\"}",
           "format": "time_series",
+          "hide": true,
           "intervalFactor": 1,
           "legendFormat": "PEX12V",
           "refId": "D"
@@ -967,6 +1041,7 @@
         {
           "expr": "minerator_vrctrl_temp_health{device=\"$device\"}",
           "format": "time_series",
+          "hide": true,
           "intervalFactor": 1,
           "legendFormat": "VRCTRL Temp",
           "refId": "E"
@@ -974,6 +1049,7 @@
         {
           "expr": "minerator_core_clock_multiplier_health{device=\"$device\"}",
           "format": "time_series",
+          "hide": false,
           "intervalFactor": 1,
           "legendFormat": "Clock Multi",
           "refId": "F"
@@ -981,6 +1057,7 @@
         {
           "expr": "minerator_input_power_health{device=\"$device\"}",
           "format": "time_series",
+          "hide": true,
           "intervalFactor": 1,
           "legendFormat": "Input Power",
           "refId": "G"
@@ -988,6 +1065,7 @@
         {
           "expr": "minerator_vccint_current_health{device=\"$device\"}",
           "format": "time_series",
+          "hide": true,
           "intervalFactor": 1,
           "legendFormat": "VCCINT Current",
           "refId": "H"
@@ -995,6 +1073,7 @@
         {
           "expr": "minerator_phase_temp_health{device=\"$device\", phase=\"0\"}",
           "format": "time_series",
+          "hide": true,
           "intervalFactor": 1,
           "legendFormat": "Phase 0 Temp",
           "refId": "I"
@@ -1002,6 +1081,7 @@
         {
           "expr": "minerator_phase_temp_health{device=\"$device\", phase=\"1\"}",
           "format": "time_series",
+          "hide": true,
           "intervalFactor": 1,
           "legendFormat": "Phase 1 Temp",
           "refId": "J"
@@ -1009,6 +1089,7 @@
         {
           "expr": "minerator_sysmon_health{device=\"$device\", sysmon=\"0\"}",
           "format": "time_series",
+          "hide": true,
           "intervalFactor": 1,
           "legendFormat": "Sysmon 0 Temp",
           "refId": "K"
@@ -1016,6 +1097,7 @@
         {
           "expr": "minerator_sysmon_health{device=\"$device\", sysmon=\"1\"}",
           "format": "time_series",
+          "hide": true,
           "intervalFactor": 1,
           "legendFormat": "Sysmon 1 Temp",
           "refId": "L"
@@ -1023,6 +1105,7 @@
         {
           "expr": "minerator_sysmon_health{device=\"$device\", sysmon=\"2\"}",
           "format": "time_series",
+          "hide": true,
           "intervalFactor": 1,
           "legendFormat": "Sysmon 2 Temp",
           "refId": "M"
@@ -1071,7 +1154,7 @@
       },
       "timeShift": null,
       "timeTextColor": "#d8d9da",
-      "title": "Health over time",
+      "title": "Multiplier Health over time",
       "type": "natel-discrete-panel",
       "units": "short",
       "useTimePrecision": false,
@@ -1114,20 +1197,19 @@
           "value": "current"
         }
       ],
+      "datasource": "${DS_LOCAL_PROMETHEUS}",
       "fontSize": "100%",
       "gridPos": {
         "h": 6,
         "w": 5,
         "x": 0,
-        "y": 22
+        "y": 14
       },
       "id": 24,
       "links": [
         {
-          "dashboard": "sysmon",
-          "params": "var-device=$device&var-sysmon=$sysmon",
           "title": "Sysmon",
-          "type": "dashboard"
+          "url": "dashboard/db/sysmon?var-device=$device&var-sysmon=$sysmon"
         }
       ],
       "maxPerRow": null,
@@ -1135,13 +1217,6 @@
       "pageSize": null,
       "repeat": "sysmon",
       "repeatDirection": "v",
-      "scopedVars": {
-        "sysmon": {
-          "selected": false,
-          "text": "0",
-          "value": "0"
-        }
-      },
       "scroll": true,
       "showHeader": true,
       "sort": {
@@ -1207,34 +1282,25 @@
           "value": "current"
         }
       ],
+      "datasource": "${DS_LOCAL_PROMETHEUS}",
       "fontSize": "100%",
       "gridPos": {
         "h": 6,
         "w": 5,
         "x": 5,
-        "y": 22
+        "y": 14
       },
       "id": 28,
       "links": [
         {
-          "dashboard": "Phase",
-          "params": "var-device=$device&var-phase=$phase",
           "title": "Phase",
-          "type": "dashboard",
-          "url": "/d/QES0-N7Zz/phase"
+          "url": "/d/QES0-N7Zz/phase?var-device=$device&var-phase=$phase"
         }
       ],
       "options": {},
       "pageSize": null,
       "repeat": "phase",
       "repeatDirection": "v",
-      "scopedVars": {
-        "phase": {
-          "selected": true,
-          "text": "0",
-          "value": "0"
-        }
-      },
       "scroll": true,
       "showHeader": true,
       "sort": {
@@ -1301,6 +1367,7 @@
     },
     {
       "activePatternIndex": 1,
+      "datasource": "${DS_LOCAL_PROMETHEUS}",
       "debug_mode": false,
       "defaultPattern": {
         "bgColors": "green|orange|red",
@@ -1343,7 +1410,7 @@
         "h": 9,
         "w": 7,
         "x": 10,
-        "y": 22
+        "y": 14
       },
       "hide_first_column": false,
       "id": 34,
@@ -1507,12 +1574,13 @@
           "value": "max"
         }
       ],
+      "datasource": "${DS_LOCAL_PROMETHEUS}",
       "fontSize": "100%",
       "gridPos": {
         "h": 9,
         "w": 7,
         "x": 17,
-        "y": 22
+        "y": 14
       },
       "id": 15,
       "links": [],
@@ -1599,208 +1667,13 @@
           "value": "current"
         }
       ],
-      "fontSize": "100%",
-      "gridPos": {
-        "h": 6,
-        "w": 5,
-        "x": 0,
-        "y": 28
-      },
-      "id": 83,
-      "links": [
-        {
-          "dashboard": "sysmon",
-          "params": "var-device=$device&var-sysmon=$sysmon",
-          "title": "Sysmon",
-          "type": "dashboard"
-        }
-      ],
-      "maxPerRow": null,
-      "options": {},
-      "pageSize": null,
-      "repeat": null,
-      "repeatDirection": "v",
-      "repeatIteration": 1577902030551,
-      "repeatPanelId": 24,
-      "scopedVars": {
-        "sysmon": {
-          "selected": false,
-          "text": "1",
-          "value": "1"
-        }
-      },
-      "scroll": true,
-      "showHeader": true,
-      "sort": {
-        "col": 0,
-        "desc": true
-      },
-      "styles": [
-        {
-          "alias": "Value",
-          "colorMode": null,
-          "colors": [
-            "rgba(245, 54, 54, 0.9)",
-            "rgba(237, 129, 40, 0.89)",
-            "rgba(50, 172, 45, 0.97)"
-          ],
-          "decimals": 2,
-          "pattern": "Current",
-          "thresholds": [],
-          "type": "number",
-          "unit": "short"
-        }
-      ],
-      "targets": [
-        {
-          "expr": "minerator_sysmon_temperature{device=\"$device\", sysmon=\"$sysmon\"}",
-          "format": "time_series",
-          "intervalFactor": 1,
-          "legendFormat": "Temp (C)",
-          "refId": "A"
-        },
-        {
-          "expr": "minerator_sysmon_vccbram{device=\"$device\", sysmon=\"$sysmon\"}",
-          "format": "time_series",
-          "intervalFactor": 1,
-          "legendFormat": "VCCBRAM (V)",
-          "refId": "B"
-        },
-        {
-          "expr": "minerator_sysmon_vccint{device=\"$device\", sysmon=\"$sysmon\"}",
-          "format": "time_series",
-          "intervalFactor": 1,
-          "legendFormat": "VCCINT (V)",
-          "refId": "C"
-        },
-        {
-          "expr": "minerator_sysmon_vccaux{device=\"$device\", sysmon=\"$sysmon\"}",
-          "format": "time_series",
-          "intervalFactor": 1,
-          "legendFormat": "VCCAUX (V)",
-          "refId": "D"
-        }
-      ],
-      "timeFrom": null,
-      "timeShift": null,
-      "title": "Sysmon $sysmon",
-      "transform": "timeseries_aggregations",
-      "type": "table"
-    },
-    {
-      "columns": [
-        {
-          "text": "Current",
-          "value": "current"
-        }
-      ],
-      "fontSize": "100%",
-      "gridPos": {
-        "h": 6,
-        "w": 5,
-        "x": 5,
-        "y": 28
-      },
-      "id": 85,
-      "links": [
-        {
-          "dashboard": "Phase",
-          "params": "var-device=$device&var-phase=$phase",
-          "title": "Phase",
-          "type": "dashboard",
-          "url": "/d/QES0-N7Zz/phase"
-        }
-      ],
-      "options": {},
-      "pageSize": null,
-      "repeat": null,
-      "repeatDirection": "v",
-      "repeatIteration": 1577902030551,
-      "repeatPanelId": 28,
-      "scopedVars": {
-        "phase": {
-          "selected": true,
-          "text": "1",
-          "value": "1"
-        }
-      },
-      "scroll": true,
-      "showHeader": true,
-      "sort": {
-        "col": 0,
-        "desc": true
-      },
-      "styles": [
-        {
-          "alias": "Time",
-          "dateFormat": "YYYY-MM-DD HH:mm:ss",
-          "pattern": "Time",
-          "type": "date"
-        },
-        {
-          "alias": "",
-          "colorMode": null,
-          "colors": [
-            "rgba(245, 54, 54, 0.9)",
-            "rgba(237, 129, 40, 0.89)",
-            "rgba(50, 172, 45, 0.97)"
-          ],
-          "decimals": 2,
-          "pattern": "/.*/",
-          "thresholds": [],
-          "type": "number",
-          "unit": "short"
-        }
-      ],
-      "targets": [
-        {
-          "expr": "minerator_phase_temp{device=\"$device\", phase=\"$phase\"}",
-          "format": "time_series",
-          "intervalFactor": 1,
-          "legendFormat": "Temperature",
-          "refId": "A"
-        },
-        {
-          "expr": "minerator_phase_vout{device=\"$device\", phase=\"$phase\"}",
-          "format": "time_series",
-          "intervalFactor": 1,
-          "legendFormat": "VOUT ",
-          "refId": "B"
-        },
-        {
-          "expr": "minerator_phase_iout{device=\"$device\", phase=\"$phase\"}",
-          "format": "time_series",
-          "intervalFactor": 1,
-          "legendFormat": "IOUT ",
-          "refId": "C"
-        },
-        {
-          "expr": "",
-          "format": "table",
-          "intervalFactor": 1,
-          "legendFormat": "{{ phase }} | phase",
-          "refId": "D"
-        }
-      ],
-      "timeFrom": null,
-      "timeShift": null,
-      "title": "Phase $phase",
-      "transform": "timeseries_aggregations",
-      "type": "table"
-    },
-    {
-      "columns": [
-        {
-          "text": "Current",
-          "value": "current"
-        }
-      ],
+      "datasource": "${DS_LOCAL_PROMETHEUS}",
       "fontSize": "100%",
       "gridPos": {
         "h": 9,
         "w": 3,
         "x": 10,
-        "y": 31
+        "y": 23
       },
       "id": 21,
       "links": [],
@@ -1886,12 +1759,13 @@
           "value": "current"
         }
       ],
+      "datasource": "${DS_LOCAL_PROMETHEUS}",
       "fontSize": "100%",
       "gridPos": {
         "h": 9,
         "w": 3,
         "x": 13,
-        "y": 31
+        "y": 23
       },
       "id": 22,
       "links": [],
@@ -1963,107 +1837,13 @@
       "type": "table"
     },
     {
-      "columns": [
-        {
-          "text": "Current",
-          "value": "current"
-        }
-      ],
-      "fontSize": "100%",
-      "gridPos": {
-        "h": 6,
-        "w": 5,
-        "x": 0,
-        "y": 34
-      },
-      "id": 84,
-      "links": [
-        {
-          "dashboard": "sysmon",
-          "params": "var-device=$device&var-sysmon=$sysmon",
-          "title": "Sysmon",
-          "type": "dashboard"
-        }
-      ],
-      "maxPerRow": null,
-      "options": {},
-      "pageSize": null,
-      "repeat": null,
-      "repeatDirection": "v",
-      "repeatIteration": 1577902030551,
-      "repeatPanelId": 24,
-      "scopedVars": {
-        "sysmon": {
-          "selected": false,
-          "text": "2",
-          "value": "2"
-        }
-      },
-      "scroll": true,
-      "showHeader": true,
-      "sort": {
-        "col": 0,
-        "desc": true
-      },
-      "styles": [
-        {
-          "alias": "Value",
-          "colorMode": null,
-          "colors": [
-            "rgba(245, 54, 54, 0.9)",
-            "rgba(237, 129, 40, 0.89)",
-            "rgba(50, 172, 45, 0.97)"
-          ],
-          "decimals": 2,
-          "pattern": "Current",
-          "thresholds": [],
-          "type": "number",
-          "unit": "short"
-        }
-      ],
-      "targets": [
-        {
-          "expr": "minerator_sysmon_temperature{device=\"$device\", sysmon=\"$sysmon\"}",
-          "format": "time_series",
-          "intervalFactor": 1,
-          "legendFormat": "Temp (C)",
-          "refId": "A"
-        },
-        {
-          "expr": "minerator_sysmon_vccbram{device=\"$device\", sysmon=\"$sysmon\"}",
-          "format": "time_series",
-          "intervalFactor": 1,
-          "legendFormat": "VCCBRAM (V)",
-          "refId": "B"
-        },
-        {
-          "expr": "minerator_sysmon_vccint{device=\"$device\", sysmon=\"$sysmon\"}",
-          "format": "time_series",
-          "intervalFactor": 1,
-          "legendFormat": "VCCINT (V)",
-          "refId": "C"
-        },
-        {
-          "expr": "minerator_sysmon_vccaux{device=\"$device\", sysmon=\"$sysmon\"}",
-          "format": "time_series",
-          "intervalFactor": 1,
-          "legendFormat": "VCCAUX (V)",
-          "refId": "D"
-        }
-      ],
-      "timeFrom": null,
-      "timeShift": null,
-      "title": "Sysmon $sysmon",
-      "transform": "timeseries_aggregations",
-      "type": "table"
-    },
-    {
       "collapsed": false,
+      "datasource": "${DS_LOCAL_PROMETHEUS}",
       "gridPos": {
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 40
+        "y": 32
       },
       "id": 6,
       "panels": [],
@@ -2075,13 +1855,16 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
+      "datasource": "${DS_LOCAL_PROMETHEUS}",
       "fill": 0,
+      "fillGradient": 0,
       "gridPos": {
         "h": 14,
         "w": 12,
         "x": 0,
-        "y": 41
+        "y": 33
       },
+      "hiddenSeries": false,
       "id": 72,
       "legend": {
         "avg": false,
@@ -2096,7 +1879,9 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
-      "options": {},
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 2,
       "points": false,
@@ -2184,13 +1969,16 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
+      "datasource": "${DS_LOCAL_PROMETHEUS}",
       "fill": 0,
+      "fillGradient": 0,
       "gridPos": {
         "h": 14,
         "w": 12,
         "x": 12,
-        "y": 41
+        "y": 33
       },
+      "hiddenSeries": false,
       "id": 78,
       "legend": {
         "avg": false,
@@ -2205,7 +1993,9 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
-      "options": {},
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 2,
       "points": false,
@@ -2295,13 +2085,16 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
+      "datasource": "${DS_LOCAL_PROMETHEUS}",
       "fill": 0,
+      "fillGradient": 0,
       "gridPos": {
         "h": 14,
         "w": 12,
         "x": 0,
-        "y": 55
+        "y": 47
       },
+      "hiddenSeries": false,
       "id": 67,
       "legend": {
         "avg": false,
@@ -2316,7 +2109,9 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
-      "options": {},
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 2,
       "points": false,
@@ -2392,13 +2187,16 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
+      "datasource": "${DS_LOCAL_PROMETHEUS}",
       "fill": 0,
+      "fillGradient": 0,
       "gridPos": {
         "h": 14,
         "w": 12,
         "x": 12,
-        "y": 55
+        "y": 47
       },
+      "hiddenSeries": false,
       "id": 71,
       "legend": {
         "avg": false,
@@ -2413,7 +2211,9 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
-      "options": {},
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 2,
       "points": false,
@@ -2467,7 +2267,8 @@
       },
       "yaxes": [
         {
-          "format": "none",
+          "decimals": 2,
+          "format": "short",
           "label": "Multiplier",
           "logBase": 1,
           "max": null,
@@ -2487,22 +2288,105 @@
         "align": false,
         "alignLevel": null
       }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "${DS_LOCAL_PROMETHEUS}",
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 6,
+        "y": 61
+      },
+      "hiddenSeries": false,
+      "id": 87,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
+      "percentage": false,
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "minerator_vccint{device=\"$device\"}",
+          "legendFormat": "{{ device }} ",
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "VCCINT",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
     }
   ],
   "refresh": "5s",
-  "schemaVersion": 18,
+  "schemaVersion": 21,
   "style": "dark",
   "tags": [],
   "templating": {
     "list": [
       {
         "allValue": null,
-        "current": {
-          "isNone": true,
-          "text": "None",
-          "value": ""
-        },
-        "datasource": "Prometheus-1",
+        "current": {},
+        "datasource": "${DS_LOCAL_PROMETHEUS}",
         "definition": "label_values(minerator_core_clock_multiplier, device)",
         "hide": 0,
         "includeAll": false,
@@ -2523,44 +2407,17 @@
       },
       {
         "allValue": null,
-        "current": {
-          "tags": [],
-          "text": "All",
-          "value": [
-            "$__all"
-          ]
-        },
-        "datasource": "Prometheus-1",
+        "current": {},
+        "datasource": "${DS_LOCAL_PROMETHEUS}",
         "definition": "label_values(minerator_sysmon_health, sysmon)",
         "hide": 2,
         "includeAll": true,
         "label": null,
         "multi": true,
         "name": "sysmon",
-        "options": [
-          {
-            "selected": true,
-            "text": "All",
-            "value": "$__all"
-          },
-          {
-            "selected": false,
-            "text": "0",
-            "value": "0"
-          },
-          {
-            "selected": false,
-            "text": "1",
-            "value": "1"
-          },
-          {
-            "selected": false,
-            "text": "2",
-            "value": "2"
-          }
-        ],
+        "options": [],
         "query": "label_values(minerator_sysmon_health, sysmon)",
-        "refresh": 0,
+        "refresh": 1,
         "regex": "",
         "skipUrlSync": false,
         "sort": 0,
@@ -2572,39 +2429,17 @@
       },
       {
         "allValue": null,
-        "current": {
-          "tags": [],
-          "text": "0",
-          "value": [
-            "0"
-          ]
-        },
-        "datasource": "Prometheus-1",
+        "current": {},
+        "datasource": "${DS_LOCAL_PROMETHEUS}",
         "definition": "label_values(minerator_phase_temp, phase)",
         "hide": 2,
         "includeAll": true,
         "label": null,
         "multi": true,
         "name": "phase",
-        "options": [
-          {
-            "selected": false,
-            "text": "All",
-            "value": "$__all"
-          },
-          {
-            "selected": true,
-            "text": "0",
-            "value": "0"
-          },
-          {
-            "selected": true,
-            "text": "1",
-            "value": "1"
-          }
-        ],
+        "options": [],
         "query": "label_values(minerator_phase_temp, phase)",
-        "refresh": 0,
+        "refresh": 1,
         "regex": "",
         "skipUrlSync": false,
         "sort": 0,
@@ -2648,5 +2483,5 @@
   "timezone": "",
   "title": "Device",
   "uid": "usxDW47Zk",
-  "version": 75
+  "version": 6
 }
