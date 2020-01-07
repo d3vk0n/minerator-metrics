@@ -402,7 +402,7 @@ class MetricExporter():
 
             try:
                 self.parser.update_metrics(self.metrics, r.json())
-            except e:
+            except Exception as e:
                 #JSONDecodeError can happen here.. but probably others
                 #this is bad but at least the program will recover
                 print("WARNING: skipping exception : {}".format(e))
