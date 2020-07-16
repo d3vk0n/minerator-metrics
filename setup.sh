@@ -9,22 +9,6 @@ fi
 
 systemctl restart prometheus
 
-##Install Grafana
-curl https://packages.grafana.com/gpg.key | apt-key add -
-add-apt-repository "deb https://packages.grafana.com/oss/deb stable main"
-sudo apt-get update
-sudo apt-get -y install grafana
-
-systemctl daemon-reload
-systemctl enable grafana-server
-
-#Configure grafana?
-#Install grafana plugs
-grafana-cli plugins install yesoreyeram-boomtable-panel 1.0.0
-grafana-cli plugins install natel-discrete-panel 0.0.9
-
-systemctl start grafana-server
-
 
 #Configure firewall
 #Allow user to do this themselves
